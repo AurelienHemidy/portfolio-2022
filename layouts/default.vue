@@ -1,10 +1,12 @@
 <template>
-  <div class="background-line-1"></div>
-  <div class="background-line-2"></div>
-  <div class="background-line-3"></div>
-  <div class="background-line-4"></div>
-  <div class="background-line-5"></div>
-  <slot />
+  <div>
+    <div class="background-line-1"></div>
+    <div class="background-line-2"></div>
+    <div class="background-line-3"></div>
+    <div class="background-line-4"></div>
+    <div class="background-line-5"></div>
+    <slot />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -13,7 +15,7 @@
 
 @for $i from 1 through 5 {
   .background-line-#{$i} {
-    height: 100%;
+    height: calc((100 / 12 * 11%));
     width: 1px;
 
     background-color: $primary-color;

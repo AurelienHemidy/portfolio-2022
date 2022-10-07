@@ -5,8 +5,6 @@
     <NuxtPage />
   </NuxtLayout>
 
-  <!-- <BackgroundLines /> -->
-
   <Preloader />
 
   <Footer />
