@@ -86,17 +86,17 @@ onMounted(() => {
     .to(buttonBottomLeft.value, {
       y: '100%',
       opacity: 0,
-      duration: 0.3,
+      duration: 0.2,
       ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
     })
     .to(buttonBottomLeft.value, {
       y: '-100%',
-      duration: 0.1,
+      duration: 0,
     })
     .to(buttonBottomLeft.value, {
       y: '0',
       opacity: 1,
-      duration: 0.3,
+      duration: 0.2,
       ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
     });
 });
@@ -192,7 +192,9 @@ const onMouseLeaveButton = (e) => {
   grid-area: name-dev;
 
   font-family: 'Butler';
-  font-size: 4rem;
+  font-size: min(4rem, 4vw);
+
+  z-index: 9998;
 
   .t1 {
     position: relative;
@@ -204,9 +206,9 @@ const onMouseLeaveButton = (e) => {
 
       position: absolute;
       // right: 0;
-      bottom: 25px;
+      bottom: min(25px, 1.8vw);
 
-      font-size: 1rem;
+      font-size: min(1rem, 1.3vw);
     }
   }
 }
@@ -274,6 +276,98 @@ const onMouseLeaveButton = (e) => {
     transform: translateX(20%);
 
     opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    grid-template-areas:
+      '. . . . . . . . . . . .'
+      '. . . . . . . . . . . .'
+      '. . . . . . image image image . . .'
+      '. name-dev name-dev name-dev name-dev name-dev image image image projects . .'
+      '. name-dev name-dev name-dev name-dev name-dev image image image projects view .'
+      '. name-dev name-dev name-dev name-dev name-dev image image image projects . .'
+      '. . . . . . image image image . . .'
+      '. . . . . . . . . . . .'
+      '. . . . . . . . . . . .'
+      '. bottom-button . . . . . . . . date .'
+      '. . . . . . . . . . . .'
+      '. bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line .';
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    grid-template-areas:
+      '. . . . . . . . . . . .'
+      '. name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev .'
+      '. name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev .'
+      '. . . . . . . . . . . .'
+      '. . . image image image image image image . . .'
+      '. . . image image image image image image projects . .'
+      '. . . image image image image image image projects . .'
+      '. . . image image image image image image projects . .'
+      '. . . image image image image image image . . .'
+      '. bottom-button . . . . . . . . date .'
+      '. . . . . . . . . . . .'
+      '. bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line .';
+    .name-dev {
+      font-size: min(3rem, 5vw);
+      .t1 {
+        &::after {
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    .bottom-button {
+      button {
+        width: 30px;
+        height: 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 40%;
+        }
+      }
+    }
+    .view {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    grid-template-areas:
+      '. . . . . . . . . . . .'
+      '. name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev .'
+      '. name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev name-dev .'
+      '. . . . . . . . . . . .'
+      '. . image image image image image image image image . .'
+      '. . image image image image image image image image projects .'
+      '. . image image image image image image image image projects .'
+      '. . image image image image image image image image projects .'
+      '. . image image image image image image image image . .'
+      '. bottom-button . . . . . . . . date .'
+      '. . . . . . . . . . . .'
+      '. bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line bottom-line .';
+
+    .image {
+      margin-left: 0px;
+    }
+    .name-dev {
+      font-size: 1.8rem;
+      .t1 {
+        &::after {
+          font-size: 0.7rem;
+        }
+      }
+    }
   }
 }
 </style>

@@ -5,6 +5,8 @@
     <NuxtPage />
   </NuxtLayout>
 
+  <!-- <GridDebugger /> -->
+
   <Preloader />
 
   <Footer />
