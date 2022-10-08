@@ -1,15 +1,15 @@
 <template>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
-  <div class="grid-line"></div>
+  <div class="grid-line-1"></div>
+  <div class="grid-line-2"></div>
+  <div class="grid-line-3"></div>
+  <div class="grid-line-4"></div>
+  <div class="grid-line-5"></div>
+  <div class="grid-line-6"></div>
+  <div class="grid-line-7"></div>
+  <div class="grid-line-8"></div>
+  <div class="grid-line-9"></div>
+  <div class="grid-line-10"></div>
+  <div class="grid-line-11"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -19,7 +19,7 @@
 $number-of-columns: 12;
 
 @for $i from 1 through 11 {
-  .grid-line:nth-child(#{$i}) {
+  .grid-line-#{$i} {
     height: 100%;
     width: 1px;
 
