@@ -1,5 +1,5 @@
 <template>
-  <div data-scroll-container>
+  <div>
     <Header />
 
     <NuxtLayout>
@@ -14,13 +14,4 @@
   </div>
 </template>
 
-<script setup>
-const { $locomotiveScroll } = useNuxtApp();
-
-onMounted(() => {
-  const scroll = new $locomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true,
-  });
-});
-</script>
+<script setup></script>

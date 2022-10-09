@@ -1,6 +1,6 @@
 <template>
   <div class="work-container">
-    <h1 class="t">Work</h1>
+    <h1 class="t"><TextRevealAnimation text="Work"></TextRevealAnimation></h1>
 
     <Project isFirst :number="1" title="Forgotten Skies" context="Gobelins, l'Ecole de l'Image" date="2022" />
     <Project :number="2" title="Regars d'artisans" context="Gobelins, l'Ecole de l'Image" date="2021" />
@@ -26,6 +26,24 @@
     font-size: min(6rem, 15vw);
     color: $primary-color;
     text-transform: uppercase;
+
+    // overflow: hidden;
+
+    // span {
+    //   transform: translateY(80%);
+
+    //   display: block;
+
+    //   transition-duration: 1.5s;
+    //   transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    //   transition-property: transform;
+    // }
+
+    // &.is-inview {
+    //   span {
+    //     transform: translateY(0);
+    //   }
+    // }
   }
 }
 

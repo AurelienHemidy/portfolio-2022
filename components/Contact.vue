@@ -1,15 +1,15 @@
 <template>
   <div class="contact-container">
-    <h1 class="t">Contact</h1>
+    <h1 class="t"><TextRevealAnimation text="Contact"></TextRevealAnimation></h1>
 
-    <h4 class="email">aurelien@hemidy.fr</h4>
+    <h4 class="email"><TextRevealAnimation text="aurelien@hemidy.fr"></TextRevealAnimation></h4>
 
-    <h6 class="social">Social</h6>
+    <h6 class="social"><TextRevealAnimation text="Social"></TextRevealAnimation></h6>
 
     <ul class="list">
-      <li class="list-item">Instagram</li>
-      <li class="list-item">Linkedin</li>
-      <li class="list-item">Github</li>
+      <li class="list-item"><TextRevealAnimation text="Instagram" :offset="20"></TextRevealAnimation></li>
+      <li class="list-item"><TextRevealAnimation text="Linkedin" :offset="20"></TextRevealAnimation></li>
+      <li class="list-item"><TextRevealAnimation text="Github" :offset="20"></TextRevealAnimation></li>
     </ul>
   </div>
 </template>
@@ -20,7 +20,7 @@
 .contact-container {
   margin-top: 150px;
   margin-left: calc(100% / 12);
-  margin-bottom: calc(100vw / 12);
+  //   margin-bottom: calc(100vw / 12);
   .t {
     position: relative;
 

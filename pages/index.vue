@@ -1,11 +1,30 @@
 <template>
-  <div>
+  <div data-scroll-container>
     <Landing />
     <Projects />
     <Contact />
+    <div class="whitespace"></div>
   </div>
 </template>
 
+<script setup>
+const { $locomotiveScroll } = useNuxtApp();
+
+onMounted(() => {
+  const scroll = new $locomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    multiplier: 0.8,
+  });
+});
+</script>
+
 <style lang="scss" scoped>
 @import '@/assets/styles/variables/_variables.scss';
+.whitespace {
+  width: 100%;
+  height: calc(100vw / 12);
+
+  background-color: transparent;
+}
 </style>

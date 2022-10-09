@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="landing-container">
     <BackgroundLines />
     <div class="bottom-line"></div>
 
@@ -45,6 +45,7 @@ const rightLine = ref(null);
 const rightLineText = ref(null);
 const buttonBottomLeft = ref(null);
 const projectTextLeft = ref(null);
+const image = ref(null);
 
 const tlRightLine = gsap.timeline({ paused: true });
 const tlButtonBottomLeft = gsap.timeline({ paused: true });
@@ -121,7 +122,7 @@ const onMouseEnterButton = (e) => {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/variables/_variables.scss';
-.container {
+.landing-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;

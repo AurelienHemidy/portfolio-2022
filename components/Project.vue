@@ -1,5 +1,11 @@
 <template>
-  <div class="project-container" @mouseenter="onMouseEnterProject" @mouseleave="onMouseLeaveProject">
+  <div
+    class="project-container"
+    data-scroll
+    data-scroll-offset="70"
+    @mouseenter="onMouseEnterProject"
+    @mouseleave="onMouseLeaveProject"
+  >
     <div class="number">
       <h3 class="t" ref="number">\ 0{{ props.number }}</h3>
     </div>
@@ -100,7 +106,16 @@ const onMouseLeaveProject = () => {
   //   height: 150px;
   padding: 25px 0;
 
-  //   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20%);
+  transition-duration: 0.75s;
+  transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition-property: opacity, transform;
+
+  &.is-inview {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   .number {
     grid-area: number;

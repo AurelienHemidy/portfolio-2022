@@ -1,12 +1,18 @@
 <template>
   <div>
-    <div class="background-line-1"></div>
-    <div class="background-line-2"></div>
-    <div class="background-line-3"></div>
-    <div class="background-line-4"></div>
-    <div class="background-line-5"></div>
+    <div class="background-line-1" :class="isAbout ? 'isAbout' : ''"></div>
+    <div class="background-line-2" :class="isAbout ? 'isAbout' : ''"></div>
+    <div class="background-line-3" :class="isAbout ? 'isAbout' : ''"></div>
+    <div class="background-line-4" :class="isAbout ? 'isAbout' : ''"></div>
+    <div class="background-line-5" :class="isAbout ? 'isAbout' : ''"></div>
   </div>
 </template>
+
+<script setup>
+const props = defineProps({
+  isAbout: Boolean,
+});
+</script>
 
 <style lang="scss" scoped>
 @use 'sass:math';
@@ -27,6 +33,9 @@
     transform: translateX(-50%);
 
     z-index: -1;
+    &.isAbout {
+      height: 100vh;
+    }
   }
 }
 </style>
