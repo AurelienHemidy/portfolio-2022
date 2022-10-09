@@ -1,10 +1,11 @@
 <template>
-  <div class="background-line"></div>
-  <div class="background-line"></div>
-  <div class="background-line"></div>
-  <div class="background-line"></div>
-  <div class="background-line"></div>
-  <slot />
+  <div>
+    <div class="background-line-1"></div>
+    <div class="background-line-2"></div>
+    <div class="background-line-3"></div>
+    <div class="background-line-4"></div>
+    <div class="background-line-5"></div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -12,8 +13,8 @@
 @import '@/assets/styles/variables/_variables.scss';
 
 @for $i from 1 through 5 {
-  .background-line:nth-child(#{$i + 3}) {
-    height: 100%;
+  .background-line-#{$i} {
+    height: calc((100 / 12 * 11vh));
     width: 1px;
 
     background-color: $primary-color;

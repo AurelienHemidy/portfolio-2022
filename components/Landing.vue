@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <BackgroundLines />
     <div class="bottom-line"></div>
 
     <div class="date">
@@ -114,11 +115,7 @@ const onMouseLeaveImage = (e) => {
 };
 
 const onMouseEnterButton = (e) => {
-  tlButtonBottomLeft.play();
-};
-
-const onMouseLeaveButton = (e) => {
-  tlButtonBottomLeft.reverse();
+  tlButtonBottomLeft.restart();
 };
 </script>
 

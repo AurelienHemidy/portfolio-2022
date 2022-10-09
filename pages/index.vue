@@ -1,6 +1,9 @@
 <template>
-  <Landing />
-  <Projects />
+  <div>
+    <Landing />
+    <Projects />
+    <Contact />
+  </div>
 </template>
 
 <style lang="scss" scoped>
