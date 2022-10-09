@@ -1,13 +1,26 @@
 <template>
-  <Header />
+  <div data-scroll-container>
+    <Header />
 
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
 
-  <!-- <GridDebugger /> -->
+    <!-- <GridDebugger /> -->
 
-  <Preloader />
+    <Preloader />
 
-  <Footer />
+    <Footer />
+  </div>
 </template>
+
+<script setup>
+const { $locomotiveScroll } = useNuxtApp();
+
+onMounted(() => {
+  const scroll = new $locomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+  });
+});
+</script>
