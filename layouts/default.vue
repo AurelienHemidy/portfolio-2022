@@ -22,7 +22,7 @@
 
     opacity: 0.5;
 
-    position: fixed;
+    position: absolute;
     left: calc($i * math.div(100, 6) * 1%);
     top: 0;
     transform: translateX(-50%);

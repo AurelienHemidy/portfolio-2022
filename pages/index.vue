@@ -1,5 +1,6 @@
 <template>
   <Landing />
+  <Projects />
 </template>
 
 <style lang="scss" scoped>
