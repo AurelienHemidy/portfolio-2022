@@ -127,6 +127,12 @@ const onImageSliderClick = (e) => {
     xPercent: 100 * imageID,
     x: 21 * imageID,
     duration: 0.3,
+    // ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
+  });
+
+  gsap.to(slide.value, {
+    yPercent: 100 * imageID,
+    duration: 0.1,
     ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
   });
 };
@@ -353,7 +359,7 @@ const onImageSliderClick = (e) => {
       background-color: #1b2c1e;
 
       .slide {
-        height: 20%;
+        height: calc(100% / 6);
         width: 3px;
 
         position: relative;
@@ -385,7 +391,7 @@ const onImageSliderClick = (e) => {
 
     .slider-background {
       position: absolute;
-      height: calc(4vw + 4px);
+      height: calc(4vw + 5px);
       width: calc(100% / 6 - 21px);
 
       margin-left: 10.5px;
@@ -395,7 +401,7 @@ const onImageSliderClick = (e) => {
 
       background-color: $primary-color;
 
-      transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      // transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
       // transform: translateX(calc((100% + 21px) * 0));
     }
@@ -406,6 +412,8 @@ const onImageSliderClick = (e) => {
       width: 100%;
 
       object-fit: cover;
+
+      cursor: pointer;
     }
   }
 }
