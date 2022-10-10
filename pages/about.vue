@@ -11,10 +11,10 @@
         </svg>
       </button>
     </div>
-    <div class="rights">
-      <p class="t">© Aurélien Hémidy</p>
-      <div class="line"></div>
-      <p class="t">All rights reserved</p>
+    <div class="title">
+      <h1 class="t">Forgotten Skies</h1>
+      <h5 class="t2">Gobelins, l'Ecole de l'Image</h5>
+      <p class="t3">2022</p>
     </div>
     <div class="projects">
       <h5 class="t">THE PROJECT</h5>
@@ -23,16 +23,12 @@
         Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the
         ultimate goal for me.
       </p>
-    </div>
-    <div class="why">
       <h5 class="t">WHY ?</h5>
       <p class="t2">
         Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone.
         Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the
         ultimate goal for me.
       </p>
-    </div>
-    <div class="tech-stack">
       <h5 class="t">TECH STACK</h5>
       <div class="tag-list">
         <div class="tag"><span>NuxtJS</span></div>
@@ -43,11 +39,6 @@
         <div class="tag"><span>TypeScript</span></div>
         <div class="tag"><span>TypeScript</span></div>
       </div>
-    </div>
-    <div class="title">
-      <h1 class="t">Forgotten Skies</h1>
-      <h5 class="t2">Gobelins, l'Ecole de l'Image</h5>
-      <p class="t3">2022</p>
     </div>
     <div class="image">
       <div class="line-visit">
@@ -103,6 +94,11 @@
         @click="onImageSliderClick"
       />
     </div>
+    <div class="rights">
+      <p class="t">© Aurélien Hémidy</p>
+      <div class="line"></div>
+      <p class="t">All rights reserved</p>
+    </div>
   </div>
 </template>
 
@@ -123,9 +119,11 @@ const onScroll = () => {
 const onImageSliderClick = (e) => {
   const imageID = e.target.getAttribute('id');
 
+  const pixelsToAdd = window.innerWidth > 700 ? 21 : 2;
+
   gsap.to(sliderBackground.value, {
     xPercent: 100 * imageID,
-    x: 21 * imageID,
+    x: pixelsToAdd * imageID,
     duration: 0.3,
     // ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
   });
@@ -153,12 +151,12 @@ const onImageSliderClick = (e) => {
     '. . . . . . . . . . . .'
     '. projects projects projects . image image image image image image .'
     '. projects projects projects . image image image image image image .'
-    '. . . . . image image image image image image slider'
-    '. why why why . image image image image image image slider'
-    '. why why why . image image image image image image slider'
-    '. . . . . image image image image image image slider'
-    '. tech-stack tech-stack tech-stack . image image image image image image .'
-    '. tech-stack tech-stack tech-stack . image image image image image image .'
+    '. projects projects projects . image image image image image image slider'
+    '. projects projects projects . image image image image image image slider'
+    '. projects projects projects . image image image image image image slider'
+    '. projects projects projects . image image image image image image slider'
+    '. projects projects projects . image image image image image image .'
+    '. projects projects projects . image image image image image image .'
     '. . . . . slider-image slider-image slider-image slider-image slider-image slider-image .'
     '. . rights rights . next-project next-project next-project next-project next-project next-project .';
 
@@ -180,6 +178,10 @@ const onImageSliderClick = (e) => {
 
       background-color: transparent;
       border: 1.5px solid $primary-color;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       cursor: pointer;
 
@@ -222,39 +224,16 @@ const onImageSliderClick = (e) => {
     .t {
       font-size: 2rem;
 
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .t2 {
       font-family: 'Open Sans';
       font-weight: 300;
       font-size: 0.9rem;
-    }
-  }
-  .why {
-    grid-area: why;
-    // background-color: aqua;
-    .t {
-      font-size: 2rem;
-
-      margin-bottom: 15px;
+      margin-bottom: 30px;
     }
 
-    .t2 {
-      font-size: 0.9rem;
-      font-family: 'Open Sans';
-      font-weight: 300;
-    }
-  }
-  .tech-stack {
-    grid-area: tech-stack;
-    // background-color: orange;
-
-    .t {
-      font-size: 2rem;
-
-      margin-bottom: 15px;
-    }
     .tag-list {
       display: flex;
       flex-wrap: wrap;
@@ -273,6 +252,7 @@ const onImageSliderClick = (e) => {
       }
     }
   }
+
   .title {
     grid-area: title;
     // background-color: blue;
@@ -291,6 +271,7 @@ const onImageSliderClick = (e) => {
       color: $primary-color;
 
       margin-bottom: 10px;
+      white-space: nowrap;
     }
 
     .t3 {
@@ -330,18 +311,18 @@ const onImageSliderClick = (e) => {
 
     img {
       width: 100%;
-      height: 94%;
+      height: calc(100% - 1.5rem);
       object-fit: cover;
     }
   }
 
   .previous-project {
     grid-area: previous-project;
-    background-color: rgb(29, 34, 33);
+    background-color: rgb(223, 230, 228);
   }
   .next-project {
     grid-area: next-project;
-    background-color: rgb(29, 34, 33);
+    background-color: rgb(183, 190, 189);
   }
 
   .slider {
@@ -414,6 +395,149 @@ const onImageSliderClick = (e) => {
       object-fit: cover;
 
       cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .about-container {
+    // background-color: red;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.7fr 1.3fr 1fr 0.5fr 1.1fr 1.1fr 0.5fr 1.2fr 1.1fr 0.5fr 1.5fr 1.4fr 1.4fr 0.7fr;
+    grid-template-areas:
+      '. . . . . previous-project previous-project previous-project previous-project previous-project previous-project .'
+      '. top-button . . . . . . title title title .'
+      '. . . . . . . . title title title .'
+      '. . . . . . . . . . . .'
+      '. projects projects projects . . . . . . . .'
+      '. projects projects projects . image image image image image image slider'
+      '. projects projects projects . image image image image image image slider'
+      '. projects projects projects . image image image image image image slider'
+      '. projects projects projects . image image image image image image .'
+      '. projects projects projects . image image image image image image .'
+      '. projects projects projects . image image image image image image .'
+      '. projects projects projects . slider-image slider-image slider-image slider-image slider-image slider-image .'
+      '. projects projects projects . . . . . . . .'
+      '. . rights rights . next-project next-project next-project next-project next-project next-project .';
+
+    .projects {
+      .t {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .t2 {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+      }
+
+      .tag-list {
+        .tag {
+          padding: 2.5px 12.5px;
+          margin: 0 7.5px 7.5px 0;
+
+          span {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .about-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.7fr 1.3fr 1fr 0.5fr 1.1fr 1.1fr 0.5fr 1.2fr 1.1fr 0.5fr 1.5fr 1.4fr 1.4fr 0.7fr;
+    grid-template-areas:
+      '. . . . . previous-project previous-project previous-project previous-project previous-project previous-project .'
+      '. top-button . . . . . . title title title .'
+      '. . . . . . . . title title title .'
+      '. . . . . . . . . . . .'
+      '. projects projects projects . . . . . . . .'
+      '. projects projects projects . image image image image image image slider'
+      '. projects projects projects . image image image image image image slider'
+      '. projects projects projects . image image image image image image slider'
+      '. projects projects projects . image image image image image image .'
+      '. projects projects projects . image image image image image image .'
+      '. projects projects projects . image image image image image image .'
+      '. projects projects projects . slider-image slider-image slider-image slider-image slider-image slider-image .'
+      '. projects projects projects . . . . . . . .'
+      '. . rights rights . next-project next-project next-project next-project next-project next-project .';
+
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+
+    margin: 20px calc(100% / 12);
+
+    .top-button {
+      // background-color: red;
+      position: absolute;
+      margin-top: 7.5px;
+      .button {
+        width: 30px;
+        height: 30px;
+
+        svg {
+          width: 10px;
+        }
+      }
+    }
+
+    .title {
+      .t {
+        font-size: 1.6rem;
+      }
+
+      .t2 {
+        font-size: 1rem;
+      }
+
+      margin-bottom: 50px;
+    }
+
+    .projects {
+      .t {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      .t2 {
+        margin-bottom: 30px;
+      }
+
+      .tag-list {
+        margin-bottom: 20px;
+      }
+    }
+
+    .rights {
+      .t {
+        font-size: 0.6rem;
+      }
+      margin-top: 20px;
+    }
+
+    .slider-image {
+      padding: 0;
+      gap: 0 5px;
+
+      .slider-background {
+        margin-left: -2px;
+        margin-top: -2px;
+        height: calc(10vw + 4px);
+        width: calc(100% / 6 - 1px);
+      }
+
+      img {
+        height: 10vw;
+      }
     }
   }
 }
