@@ -8,7 +8,7 @@
     </div>
 
     <div class="bottom-button">
-      <button class="button" @mouseenter="onMouseEnterButton" @mouseleave="onMouseLeaveButton">
+      <button class="button" @mouseenter="onMouseEnterButton" @mouseleave="onMouseLeaveButton" @click="buttonProjects">
         <img src="~/assets/background/arrow-icon.svg" alt="arrow icon" ref="buttonBottomLeft" />
       </button>
     </div>

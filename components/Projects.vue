@@ -1,14 +1,22 @@
 <template>
-  <div class="work-container">
+  <div class="work-container" id="projects">
     <h1 class="t"><TextRevealAnimation text="Work"></TextRevealAnimation></h1>
 
-    <Project isFirst :number="1" title="Forgotten Skies" context="Gobelins, l'Ecole de l'Image" date="2022" />
-    <Project :number="2" title="Regars d'artisans" context="Gobelins, l'Ecole de l'Image" date="2021" />
-    <Project :number="3" title="A.D's Portfolio" context="Freelance" date="2020" />
-    <Project :number="4" title="Mécanima" context="Gobelins, l'Ecole de l'Image" date="2020" />
-    <Project :number="5" title="Burger Water" context="Gobelins, l'Ecole de l'Image" date="2019" />
+    <Project
+      :number="i + 1"
+      :isFirst="i === 0"
+      v-for="(project, i) in allProjects"
+      :title="project.title"
+      :context="project.context"
+      :date="project.date"
+      :slug="project.slug"
+    />
   </div>
 </template>
+
+<script setup>
+const { data: allProjects } = await useAsyncData('all-projects', () => queryContent('/project').sort({ id: 1 }).find());
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/styles/variables/_variables.scss';

@@ -2,7 +2,7 @@
   <div class="about-container" @wheel="onScroll">
     <BackgroundLines isAbout />
     <div class="top-button">
-      <button class="button">
+      <button class="button" @click="goToMainPage">
         <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" ref="arrow">
           <path
             d="M7.29289 14.7071C7.68342 15.0976 8.31658 15.0976 8.70711 14.7071L15.0711 8.34315C15.4616 7.95262 15.4616 7.31946 15.0711 6.92893C14.6805 6.53841 14.0474 6.53841 13.6569 6.92893L8 12.5858L2.34315 6.92893C1.95262 6.53841 1.31946 6.53841 0.928932 6.92893C0.538408 7.31946 0.538408 7.95262 0.928933 8.34315L7.29289 14.7071ZM7 4.37114e-08L7 14L9 14L9 -4.37114e-08L7 4.37114e-08Z"
@@ -107,19 +107,23 @@ import gsap from 'gsap';
 const slide = ref(null);
 const sliderBackground = ref(null);
 
-const onScroll = () => {
-  // console.log('whelll');
-  // gsap.to(slide.value, {
-  //   y: '+=100%',
-  //   duration: 0.1,
-  //   ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-  // });
+const route = useRoute();
+const router = useRouter();
+
+const { data } = await useAsyncData(route.params.slug, () =>
+  queryContent('/project').where({ slug: route.params.slug }).findOne()
+);
+
+const goToMainPage = () => {
+  router.push('/');
 };
+
+console.log(data.value);
 
 const onImageSliderClick = (e) => {
   const imageID = e.target.getAttribute('id');
 
-  const pixelsToAdd = window.innerWidth > 700 ? 21 : 2;
+  const pixelsToAdd = window.innerWidth > 800 ? 21 : 2;
 
   gsap.to(sliderBackground.value, {
     xPercent: 100 * imageID,
@@ -451,8 +455,8 @@ const onImageSliderClick = (e) => {
     grid-template-rows: 0.7fr 1.3fr 1fr 0.5fr 1.1fr 1.1fr 0.5fr 1.2fr 1.1fr 0.5fr 1.5fr 1.4fr 1.4fr 0.7fr;
     grid-template-areas:
       '. . . . . previous-project previous-project previous-project previous-project previous-project previous-project .'
-      '. top-button . . . . . . title title title .'
-      '. . . . . . . . title title title .'
+      '. top-button . . . . . title title title . .'
+      '. . . . . . . title title title . .'
       '. . . . . . . . . . . .'
       '. projects projects projects . . . . . . . .'
       '. projects projects projects . image image image image image image slider'
@@ -469,7 +473,7 @@ const onImageSliderClick = (e) => {
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
   .about-container {
     display: flex;
     flex-direction: column;

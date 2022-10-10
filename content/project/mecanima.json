@@ -1,0 +1,9 @@
+{
+  "id": 4,
+  "title": "Mécanima",
+  "context": "Hybrid Website",
+  "date": 2020,
+  "slug": "mecanima",
+  "images": ["assets/"],
+  "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
+}

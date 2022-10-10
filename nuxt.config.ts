@@ -7,4 +7,13 @@ export default defineNuxtConfig({
   },
 
   plugins: ['~/plugins/locomotiveScroll.client.js'],
+
+  modules: ['@nuxt/content'],
+
+  content: {
+    highlight: false,
+    markdown: {
+      mdc: false,
+    },
+  },
 });
