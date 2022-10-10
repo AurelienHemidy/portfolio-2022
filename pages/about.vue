@@ -50,6 +50,10 @@
       <p class="t3">2022</p>
     </div>
     <div class="image">
+      <div class="line-visit">
+        <div class="line"></div>
+        <h4 class="t">Visit the site</h4>
+      </div>
       <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
     </div>
     <div class="previous-project"></div>
@@ -59,12 +63,53 @@
         <div class="slide" ref="slide"></div>
       </div>
     </div>
+
+    <div class="slider-image">
+      <div class="slider-background" ref="sliderBackground"></div>
+      <img
+        src="~/assets/background/forgotten-skies-image.png"
+        alt="forgotten skies img"
+        id="0"
+        @click="onImageSliderClick"
+      />
+      <img
+        src="~/assets/background/forgotten-skies-image.png"
+        alt="forgotten skies img"
+        id="1"
+        @click="onImageSliderClick"
+      />
+      <img
+        src="~/assets/background/forgotten-skies-image.png"
+        alt="forgotten skies img"
+        id="2"
+        @click="onImageSliderClick"
+      />
+      <img
+        src="~/assets/background/forgotten-skies-image.png"
+        alt="forgotten skies img"
+        id="3"
+        @click="onImageSliderClick"
+      />
+      <img
+        src="~/assets/background/forgotten-skies-image.png"
+        alt="forgotten skies img"
+        id="4"
+        @click="onImageSliderClick"
+      />
+      <img
+        src="~/assets/background/forgotten-skies-image.png"
+        alt="forgotten skies img"
+        id="5"
+        @click="onImageSliderClick"
+      />
+    </div>
   </div>
 </template>
 
 <script setup>
 import gsap from 'gsap';
 const slide = ref(null);
+const sliderBackground = ref(null);
 
 const onScroll = () => {
   // console.log('whelll');
@@ -74,6 +119,17 @@ const onScroll = () => {
   //   ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
   // });
 };
+
+const onImageSliderClick = (e) => {
+  const imageID = e.target.getAttribute('id');
+
+  gsap.to(sliderBackground.value, {
+    xPercent: 100 * imageID,
+    x: 21 * imageID,
+    duration: 0.3,
+    ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
+  });
+};
 </script>
 
 <style lang="scss" scoped>
@@ -81,23 +137,24 @@ const onScroll = () => {
 .about-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.7fr 1.3fr 1fr 1fr 1fr 0.5fr 1fr 1.3fr 0.5fr 1fr 1.5fr 1fr 1.5fr 0.7fr;
+  grid-template-rows: 0.7fr 1.3fr 1fr 0.5fr 1.1fr 1.1fr 0.5fr 1.2fr 1.1fr 0.5fr 1.5fr 1fr 1.8fr 0.7fr;
+
   gap: 0px 0px;
   grid-template-areas:
     '. . . . . previous-project previous-project previous-project previous-project previous-project previous-project .'
     '. top-button . . . . . . title title title .'
     '. . . . . . . . title title title .'
+    '. . . . . . . . . . . .'
     '. projects projects projects . image image image image image image .'
     '. projects projects projects . image image image image image image .'
     '. . . . . image image image image image image slider'
     '. why why why . image image image image image image slider'
     '. why why why . image image image image image image slider'
-    '. . . . . image image image image image image .'
+    '. . . . . image image image image image image slider'
     '. tech-stack tech-stack tech-stack . image image image image image image .'
     '. tech-stack tech-stack tech-stack . image image image image image image .'
-    '. . . . . . . . . . . .'
-    '. . . . . . . . . . . .'
-    '. . rights rights . next-projects next-projects next-projects next-projects next-projects next-projects .';
+    '. . . . . slider-image slider-image slider-image slider-image slider-image slider-image .'
+    '. . rights rights . next-project next-project next-project next-project next-project next-project .';
 
   height: 100vh;
 
@@ -141,6 +198,7 @@ const onScroll = () => {
       font-size: 0.8rem;
       font-family: 'Open Sans';
       color: $primary-color;
+      white-space: nowrap;
     }
 
     .line {
@@ -219,6 +277,7 @@ const onScroll = () => {
 
     .t {
       font-size: 3rem;
+      white-space: nowrap;
     }
 
     .t2 {
@@ -237,9 +296,35 @@ const onScroll = () => {
     grid-area: image;
     // background-color: chocolate;
 
+    .line-visit {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .line {
+        // width: max-content;
+        flex-grow: 1;
+        height: 1px;
+
+        background-color: $primary-color;
+      }
+
+      .t {
+        margin-left: 20px;
+
+        text-transform: uppercase;
+        color: $primary-color;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+
+        cursor: pointer;
+      }
+    }
+
     img {
       width: 100%;
-      height: 100%;
+      height: 94%;
       object-fit: cover;
     }
   }
@@ -279,6 +364,48 @@ const onScroll = () => {
 
         // transform: translateY(100%);
       }
+    }
+  }
+
+  .slider-image {
+    grid-area: slider-image;
+
+    // background-color: salmon;
+    padding: 15px 12.5px 0 12.5px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 25px;
+    grid-template-areas: '. . . . . .';
+
+    position: relative;
+
+    transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+
+    .slider-background {
+      position: absolute;
+      height: calc(4vw + 4px);
+      width: calc(100% / 6 - 21px);
+
+      margin-left: 10.5px;
+      margin-top: 13px;
+
+      z-index: -1;
+
+      background-color: $primary-color;
+
+      transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+
+      // transform: translateX(calc((100% + 21px) * 0));
+    }
+
+    img {
+      // height: 50px;
+      height: 4vw;
+      width: 100%;
+
+      object-fit: cover;
     }
   }
 }
