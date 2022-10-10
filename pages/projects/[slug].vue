@@ -111,14 +111,12 @@ const route = useRoute();
 const router = useRouter();
 
 const { data } = await useAsyncData(route.params.slug, () =>
-  queryContent('/project').where({ slug: route.params.slug }).findOne()
+  queryContent('/project').where({ slug: route.params.slug }).find()
 );
 
 const goToMainPage = () => {
   router.push('/');
 };
-
-console.log(data.value);
 
 const onImageSliderClick = (e) => {
   const imageID = e.target.getAttribute('id');

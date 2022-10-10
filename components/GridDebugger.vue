@@ -1,15 +1,17 @@
 <template>
-  <div class="grid-line-1"></div>
-  <div class="grid-line-2"></div>
-  <div class="grid-line-3"></div>
-  <div class="grid-line-4"></div>
-  <div class="grid-line-5"></div>
-  <div class="grid-line-6"></div>
-  <div class="grid-line-7"></div>
-  <div class="grid-line-8"></div>
-  <div class="grid-line-9"></div>
-  <div class="grid-line-10"></div>
-  <div class="grid-line-11"></div>
+  <div>
+    <div class="grid-line-1"></div>
+    <div class="grid-line-2"></div>
+    <div class="grid-line-3"></div>
+    <div class="grid-line-4"></div>
+    <div class="grid-line-5"></div>
+    <div class="grid-line-6"></div>
+    <div class="grid-line-7"></div>
+    <div class="grid-line-8"></div>
+    <div class="grid-line-9"></div>
+    <div class="grid-line-10"></div>
+    <div class="grid-line-11"></div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
