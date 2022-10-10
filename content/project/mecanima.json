@@ -3,7 +3,9 @@
   "title": "Mécanima",
   "context": "Hybrid Website",
   "date": 2020,
+  "link": "/mecanima",
   "slug": "mecanima",
   "images": ["assets/"],
+  "techStack": ["NextJS", "SCSS", "Javascript", "Web Socket"],
   "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
 }

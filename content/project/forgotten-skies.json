@@ -3,7 +3,9 @@
   "title": "Forgotten Skies",
   "context": "Immersive Website",
   "date": 2022,
+  "link": "/forgotten-skies",
   "slug": "forgotten-skies",
   "images": ["assets/"],
+  "techStack": ["NuxtJS", "SCSS", "TypeScript", "ThreeJS"],
   "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
 }

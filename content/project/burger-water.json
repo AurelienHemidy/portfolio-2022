@@ -3,7 +3,9 @@
   "title": "Burger Water",
   "context": "Website",
   "date": 2019,
+  "link": "/burger-water",
   "slug": "burger-water",
   "images": ["assets/"],
+  "techStack": ["HTML", "CSS", "Javascript"],
   "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
 }

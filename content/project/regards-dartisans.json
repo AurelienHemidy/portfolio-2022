@@ -3,7 +3,9 @@
   "title": "Regards d'artisans",
   "slug": "regards-dartisans",
   "context": "Immersive Website",
+  "link": "/regards-dartisans",
   "date": 2021,
   "images": ["assets/"],
+  "techStack": ["NextJS", "SCSS", "Javascript", "ThreeJS"],
   "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
 }

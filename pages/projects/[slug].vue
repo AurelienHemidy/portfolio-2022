@@ -1,5 +1,5 @@
 <template>
-  <div class="about-container" @wheel="onScroll">
+  <div class="about-container">
     <BackgroundLines isAbout />
     <div class="top-button">
       <button class="button" @click="goToMainPage">
@@ -12,9 +12,9 @@
       </button>
     </div>
     <div class="title">
-      <h1 class="t">Forgotten Skies</h1>
-      <h5 class="t2">Gobelins, l'Ecole de l'Image</h5>
-      <p class="t3">2022</p>
+      <h1 class="t">{{ title }}</h1>
+      <h5 class="t2">{{ context }}</h5>
+      <p class="t3">{{ date }}</p>
     </div>
     <div class="projects">
       <h5 class="t">THE PROJECT</h5>
@@ -30,15 +30,11 @@
         ultimate goal for me.
       </p>
       <h5 class="t">TECH STACK</h5>
-      <div class="tag-list">
-        <div class="tag"><span>NuxtJS</span></div>
-        <div class="tag"><span>ThreeJS</span></div>
-        <div class="tag"><span>SCSS</span></div>
-        <div class="tag"><span>TypeScript</span></div>
-        <div class="tag"><span>TypeScript</span></div>
-        <div class="tag"><span>TypeScript</span></div>
-        <div class="tag"><span>TypeScript</span></div>
-      </div>
+      <ul class="tag-list">
+        <li class="tag" v-for="label in techStack">
+          <span>{{ label }}</span>
+        </li>
+      </ul>
     </div>
     <div class="image">
       <div class="line-visit">
@@ -110,9 +106,15 @@ const sliderBackground = ref(null);
 const route = useRoute();
 const router = useRouter();
 
-const { data } = await useAsyncData(route.params.slug, () =>
-  queryContent('/project').where({ slug: route.params.slug }).find()
-);
+const { data } = await useAsyncData(route.params.slug, () => {
+  queryContent('/project').where({ slug: route.params.slug }).findOne();
+});
+
+const { title, context, date, techStack } = await queryContent(`/project/${route.params.slug}`)
+  .where({ slug: route.params.slug })
+  .findOne();
+
+console.log(techStack);
 
 const goToMainPage = () => {
   router.push('/');
@@ -240,6 +242,8 @@ const onImageSliderClick = (e) => {
       display: flex;
       flex-wrap: wrap;
 
+      list-style-type: none;
+
       .tag {
         padding: 5px 15px;
         margin: 0 15px 15px 0;
@@ -320,11 +324,11 @@ const onImageSliderClick = (e) => {
 
   .previous-project {
     grid-area: previous-project;
-    background-color: rgb(223, 230, 228);
+    // background-color: rgb(223, 230, 228);
   }
   .next-project {
     grid-area: next-project;
-    background-color: rgb(183, 190, 189);
+    // background-color: rgb(183, 190, 189);
   }
 
   .slider {

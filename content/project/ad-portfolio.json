@@ -3,7 +3,9 @@
   "title": "A.D's Portfolio",
   "context": "Website",
   "date": 2020,
+  "link": "/ad-portfolio",
   "slug": "ad-portfolio",
   "images": ["assets/"],
+  "techStack": ["ReactJS", "SCSS", "Javascript"],
   "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
 }
