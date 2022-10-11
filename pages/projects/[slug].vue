@@ -12,9 +12,9 @@
       </button>
     </div>
     <div class="title">
-      <h1 class="t">{{ title }}</h1>
-      <h5 class="t2">{{ context }}</h5>
-      <p class="t3">{{ date }}</p>
+      <h1 class="t">{{ currentProject.title }}</h1>
+      <h5 class="t2">{{ currentProject.context }}</h5>
+      <p class="t3">{{ currentProject.date }}</p>
     </div>
     <div class="projects">
       <h5 class="t">THE PROJECT</h5>
@@ -31,7 +31,7 @@
       </p>
       <h5 class="t">TECH STACK</h5>
       <ul class="tag-list">
-        <li class="tag" v-for="label in techStack">
+        <li class="tag" v-for="label in currentProject.techStack">
           <span>{{ label }}</span>
         </li>
       </ul>
@@ -106,15 +106,17 @@ const sliderBackground = ref(null);
 const route = useRoute();
 const router = useRouter();
 
-const { data } = await useAsyncData(route.params.slug, () => {
-  queryContent('/project').where({ slug: route.params.slug }).findOne();
-});
+// Current Project
+const { data: currentProject } = await useAsyncData(route.params.slug, () =>
+  queryContent('/project', route.params.slug).findOne()
+);
 
-const { title, context, date, techStack } = await queryContent(`/project/${route.params.slug}`)
-  .where({ slug: route.params.slug })
-  .findOne();
+// Next and Previous projects
+const { data } = await useAsyncData('previous-next-projects', () =>
+  queryContent(`/project`).sort({ id: 1 }).findSurround(`/project/${route.params.slug}`)
+);
 
-console.log(techStack);
+// console.log(data.value);
 
 const goToMainPage = () => {
   router.push('/');
