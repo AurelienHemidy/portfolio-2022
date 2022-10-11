@@ -19,6 +19,7 @@
       </div>
       <div class="image">
         <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
+        <AnimationImage />
       </div>
       <div class="arrow">
         <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" ref="arrow">
@@ -111,16 +112,16 @@ const onMouseLeaveProject = () => {
   //   height: 150px;
   padding: 25px 0;
 
-  opacity: 0;
+  // opacity: 0;
   transform: translateY(20%);
   transition-duration: 0.75s;
   transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
   transition-property: opacity, transform;
 
-  &.is-inview {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  // &.is-inview {
+  //   opacity: 1;
+  //   transform: translateY(0);
+  // }
 
   .number {
     grid-area: number;
@@ -174,6 +175,7 @@ const onMouseLeaveProject = () => {
     // background-color: yellow;
     // display: flex;
     // align-items: center;
+    position: relative;
 
     img {
       width: calc(100% + 50px);

@@ -1,107 +1,123 @@
 <template>
-  <div class="about-container">
-    <BackgroundLines isAbout />
-    <div class="top-button">
-      <button class="button" @click="goToMainPage">
-        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" ref="arrow">
-          <path
-            d="M7.29289 14.7071C7.68342 15.0976 8.31658 15.0976 8.70711 14.7071L15.0711 8.34315C15.4616 7.95262 15.4616 7.31946 15.0711 6.92893C14.6805 6.53841 14.0474 6.53841 13.6569 6.92893L8 12.5858L2.34315 6.92893C1.95262 6.53841 1.31946 6.53841 0.928932 6.92893C0.538408 7.31946 0.538408 7.95262 0.928933 8.34315L7.29289 14.7071ZM7 4.37114e-08L7 14L9 14L9 -4.37114e-08L7 4.37114e-08Z"
-            fill="#1F1D1A"
-          />
-        </svg>
-      </button>
-    </div>
-    <div class="title">
-      <h1 class="t">{{ currentProject.title }}</h1>
-      <h5 class="t2">{{ currentProject.context }}</h5>
-      <p class="t3">{{ currentProject.date }}</p>
-    </div>
-    <div class="projects">
-      <h5 class="t">THE PROJECT</h5>
-      <p class="t2">
-        Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone.
-        Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the
-        ultimate goal for me.
-      </p>
-      <h5 class="t">WHY ?</h5>
-      <p class="t2">
-        Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone.
-        Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the
-        ultimate goal for me.
-      </p>
-      <h5 class="t">TECH STACK</h5>
-      <ul class="tag-list">
-        <li class="tag" v-for="label in currentProject.techStack">
-          <span>{{ label }}</span>
-        </li>
-      </ul>
-    </div>
-    <div class="image">
-      <div class="line-visit">
-        <div class="line"></div>
-        <h4 class="t">Visit the site</h4>
+  <Transition>
+    <div class="about-container">
+      <BackgroundLines isAbout />
+      <div class="top-button">
+        <button class="button" @click="goToMainPage">
+          <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" ref="arrow">
+            <path
+              d="M7.29289 14.7071C7.68342 15.0976 8.31658 15.0976 8.70711 14.7071L15.0711 8.34315C15.4616 7.95262 15.4616 7.31946 15.0711 6.92893C14.6805 6.53841 14.0474 6.53841 13.6569 6.92893L8 12.5858L2.34315 6.92893C1.95262 6.53841 1.31946 6.53841 0.928932 6.92893C0.538408 7.31946 0.538408 7.95262 0.928933 8.34315L7.29289 14.7071ZM7 4.37114e-08L7 14L9 14L9 -4.37114e-08L7 4.37114e-08Z"
+              fill="#1F1D1A"
+            />
+          </svg>
+        </button>
       </div>
-      <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
-    </div>
-    <div class="previous-project"></div>
-    <div class="next-project"></div>
-    <div class="slider">
-      <div class="slider-main-line">
-        <div class="slide" ref="slide"></div>
+      <div class="title">
+        <h1 class="t">{{ currentProject.title }}</h1>
+        <h5 class="t2">{{ currentProject.context }}</h5>
+        <p class="t3">{{ currentProject.date }}</p>
       </div>
-    </div>
+      <div class="projects">
+        <h5 class="t">THE PROJECT</h5>
+        <p class="t2">
+          Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone.
+          Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is
+          the ultimate goal for me.
+        </p>
+        <h5 class="t">WHY ?</h5>
+        <p class="t2">
+          Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone.
+          Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is
+          the ultimate goal for me.
+        </p>
+        <h5 class="t">TECH STACK</h5>
+        <ul class="tag-list">
+          <li class="tag" v-for="label in currentProject.techStack">
+            <span>{{ label }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="image">
+        <div class="line-visit">
+          <div class="line"></div>
+          <h4 class="t">Visit the site</h4>
+        </div>
+        <picture ref="picture">
+          <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
+        </picture>
+      </div>
+      <div class="previous-project"></div>
+      <div class="next-project"></div>
+      <div class="slider">
+        <div class="slider-main-line">
+          <div class="slide" ref="slide"></div>
+        </div>
+      </div>
 
-    <div class="slider-image">
-      <div class="slider-background" ref="sliderBackground"></div>
-      <img
-        src="~/assets/background/forgotten-skies-image.png"
-        alt="forgotten skies img"
-        id="0"
-        @click="onImageSliderClick"
-      />
-      <img
-        src="~/assets/background/forgotten-skies-image.png"
-        alt="forgotten skies img"
-        id="1"
-        @click="onImageSliderClick"
-      />
-      <img
-        src="~/assets/background/forgotten-skies-image.png"
-        alt="forgotten skies img"
-        id="2"
-        @click="onImageSliderClick"
-      />
-      <img
-        src="~/assets/background/forgotten-skies-image.png"
-        alt="forgotten skies img"
-        id="3"
-        @click="onImageSliderClick"
-      />
-      <img
-        src="~/assets/background/forgotten-skies-image.png"
-        alt="forgotten skies img"
-        id="4"
-        @click="onImageSliderClick"
-      />
-      <img
-        src="~/assets/background/forgotten-skies-image.png"
-        alt="forgotten skies img"
-        id="5"
-        @click="onImageSliderClick"
-      />
+      <div class="slider-image">
+        <div class="slider-background" ref="sliderBackground"></div>
+        <img
+          src="~/assets/background/forgotten-skies-image.png"
+          alt="forgotten skies img"
+          id="0"
+          @click="onImageSliderClick"
+        />
+        <img
+          src="~/assets/background/forgotten-skies-image.png"
+          alt="forgotten skies img"
+          id="1"
+          @click="onImageSliderClick"
+        />
+        <img
+          src="~/assets/background/forgotten-skies-image.png"
+          alt="forgotten skies img"
+          id="2"
+          @click="onImageSliderClick"
+        />
+        <img
+          src="~/assets/background/forgotten-skies-image.png"
+          alt="forgotten skies img"
+          id="3"
+          @click="onImageSliderClick"
+        />
+        <img
+          src="~/assets/background/forgotten-skies-image.png"
+          alt="forgotten skies img"
+          id="4"
+          @click="onImageSliderClick"
+        />
+        <img
+          src="~/assets/background/forgotten-skies-image.png"
+          alt="forgotten skies img"
+          id="5"
+          @click="onImageSliderClick"
+        />
+      </div>
+      <div class="rights">
+        <p class="t">© Aurélien Hémidy</p>
+        <div class="line"></div>
+        <p class="t">All rights reserved</p>
+      </div>
     </div>
-    <div class="rights">
-      <p class="t">© Aurélien Hémidy</p>
-      <div class="line"></div>
-      <p class="t">All rights reserved</p>
-    </div>
-  </div>
+  </Transition>
 </template>
 
 <script setup>
 import gsap from 'gsap';
 const slide = ref(null);
 const sliderBackground = ref(null);
+const picture = ref(null);
+const image = ref(null);
+
+definePageMeta({
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+    duration: 500,
+    onLeave: () => console.log('leave'),
+    onAfterEnter: () => console.log('enter'),
+  },
+});
 
 const route = useRoute();
 const router = useRouter();
@@ -117,6 +133,53 @@ const { data } = await useAsyncData('previous-next-projects', () =>
 );
 
 // console.log(data.value);
+
+const tlStartAnimationImage = gsap.timeline({ delay: 1 });
+const tlChangeImage = gsap.timeline({ paused: true });
+
+onMounted(() => {
+  tlStartAnimationImage
+    .to(picture.value, {
+      '--scaleX': 1,
+      duration: 0.7,
+      ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
+    })
+    .set(picture.value, {
+      '--transform-origin': 'right',
+    })
+    .set(image.value, {
+      scaleX: 1,
+    })
+    .to(picture.value, {
+      '--scaleX': 0,
+      duration: 0.7,
+      ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
+    });
+
+  tlChangeImage
+    .set(picture.value, {
+      '--transform-origin': 'left',
+    })
+    .to(picture.value, {
+      '--scaleX': 1,
+      duration: 0.7,
+      ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
+      onComplete: () => {
+        image.value.setAttribute('src', '../../assets/background/image-of-me.png');
+      },
+    })
+    .set(image.value, {
+      scaleX: 1,
+    })
+    .set(picture.value, {
+      '--transform-origin': 'right',
+    })
+    .to(picture.value, {
+      '--scaleX': 0,
+      duration: 0.7,
+      ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
+    });
+});
 
 const goToMainPage = () => {
   router.push('/');
@@ -139,6 +202,15 @@ const onImageSliderClick = (e) => {
     duration: 0.1,
     ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
   });
+
+  // gsap.to(picture.value, {
+  //   '--scaleX': 0,
+  //   duration: 0.1,
+  //   ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
+  //   delay: 1,
+  // });
+
+  tlChangeImage.restart();
 };
 </script>
 
@@ -317,7 +389,7 @@ const onImageSliderClick = (e) => {
       }
     }
 
-    img {
+    picture {
       width: 100%;
       height: calc(100% - 1.5rem);
       object-fit: cover;

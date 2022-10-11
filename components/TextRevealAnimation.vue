@@ -15,7 +15,7 @@ const props = defineProps({
 .text-reveal {
   overflow: hidden;
   span {
-    transform: translateY(80%);
+    // transform: translateY(80%);
 
     display: block;
 
@@ -23,10 +23,10 @@ const props = defineProps({
     transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
     transition-property: transform;
   }
-  &.is-inview {
-    span {
-      transform: translateY(0);
-    }
-  }
+  // &.is-inview {
+  //   span {
+  //     transform: translateY(0);
+  //   }
+  // }
 }
 </style>

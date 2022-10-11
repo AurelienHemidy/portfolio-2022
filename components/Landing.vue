@@ -19,12 +19,10 @@
     </div>
 
     <div class="image">
-      <img
-        src="~/assets/background/image-of-me.png"
-        alt="arrow icon"
-        @mouseenter="onMouseEnterImage"
-        @mouseleave="onMouseLeaveImage"
-      />
+      <picture ref="image" id="image" @mouseenter="onMouseEnterImage" @mouseleave="onMouseLeaveImage">
+        <img src="~/assets/background/image-of-me.png" alt="arrow icon" />
+      </picture>
+      <!-- <div class="animation-block"></div> -->
     </div>
 
     <div class="projects">
@@ -101,6 +99,12 @@ onMounted(() => {
       duration: 0.2,
       ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
     });
+
+  gsap.to(image.value, {
+    '--scaleX': 0,
+    duration: 0.8,
+    ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
+  });
 });
 
 const onMouseEnterImage = (e) => {
@@ -167,6 +171,20 @@ const onMouseEnterButton = (e) => {
     font-size: 2rem;
     font-weight: 700;
   }
+
+  *.page-enter-from & {
+    color: red;
+    transform: translateX(50%);
+  }
+  *.page-leave-to & {
+    color: green;
+    transform: translateX(50%);
+  }
+
+  *.page-enter-active &,
+  *.page-leave-active & {
+    transition: 0.9s all;
+  }
 }
 .bottom-button {
   grid-area: bottom-button;
@@ -207,6 +225,14 @@ const onMouseEnterButton = (e) => {
       bottom: min(25px, 1.8vw);
 
       font-size: min(1rem, 1.3vw);
+
+      .page-enter-from &,
+      .page-leave-to & {
+        opacity: 0;
+      }
+      .page-enter-active {
+        transition: 3s all;
+      }
     }
   }
 }
@@ -218,8 +244,9 @@ const onMouseEnterButton = (e) => {
   margin-left: 25px;
 
   cursor: pointer;
+  position: relative;
 
-  img {
+  picture {
     width: 100%;
     height: 100%;
 
