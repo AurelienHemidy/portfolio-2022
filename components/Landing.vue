@@ -170,20 +170,19 @@ const onMouseEnterButton = (e) => {
   .t {
     font-size: 2rem;
     font-weight: 700;
-  }
+    *.page-enter-from & {
+      color: red;
+      transform: translateX(50%);
+    }
+    *.page-leave-to & {
+      color: green;
+      transform: translateX(50%);
+    }
 
-  *.page-enter-from & {
-    color: red;
-    transform: translateX(50%);
-  }
-  *.page-leave-to & {
-    color: green;
-    transform: translateX(50%);
-  }
-
-  *.page-enter-active &,
-  *.page-leave-active & {
-    transition: 0.9s all;
+    *.page-enter-active &,
+    *.page-leave-active & {
+      transition: 0.9s all;
+    }
   }
 }
 .bottom-button {
