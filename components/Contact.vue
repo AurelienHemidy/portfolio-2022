@@ -15,8 +15,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables/_variables.scss';
-
 .contact-container {
   margin-top: 150px;
   margin-left: calc(100% / 12);

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div class="background-line-1" :class="isAbout ? 'isAbout' : ''"></div>
-    <div class="background-line-2" :class="isAbout ? 'isAbout' : ''"></div>
-    <div class="background-line-3" :class="isAbout ? 'isAbout' : ''"></div>
-    <div class="background-line-4" :class="isAbout ? 'isAbout' : ''"></div>
-    <div class="background-line-5" :class="isAbout ? 'isAbout' : ''"></div>
+    <div class="background-line-1" :class="isProject ? 'isProject' : ''"></div>
+    <div class="background-line-2" :class="isProject ? 'isProject' : ''"></div>
+    <div class="background-line-3" :class="isProject ? 'isProject' : ''"></div>
+    <div class="background-line-4" :class="isProject ? 'isProject' : ''"></div>
+    <div class="background-line-5" :class="isProject ? 'isProject' : ''"></div>
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
-  isAbout: Boolean,
+  isProject: Boolean,
 });
 </script>
 
@@ -30,7 +30,7 @@ const props = defineProps({
     transform: translateX(-50%);
 
     z-index: -1;
-    &.isAbout {
+    &.isProject {
       height: 100vh;
     }
   }
