@@ -9,24 +9,27 @@
         ${pixelsToAddResponsive * MainStore.state.sliderImageID}px) 
       )`"
     ></div>
-    <ProjectCarouselSliderImage :id="0" :onClick="onImageSliderClick" />
-    <ProjectCarouselSliderImage :id="1" :onClick="onImageSliderClick" />
-    <ProjectCarouselSliderImage :id="2" :onClick="onImageSliderClick" />
-    <ProjectCarouselSliderImage :id="3" :onClick="onImageSliderClick" />
-    <ProjectCarouselSliderImage :id="4" :onClick="onImageSliderClick" />
-    <ProjectCarouselSliderImage :id="5" :onClick="onImageSliderClick" />
+    <ProjectCarouselSliderImage v-for="(image, i) in images" :id="i" :onClick="onImageSliderClick" :image="image" />
   </div>
 </template>
 
 <script setup>
 import MainStore from '~/stores/globalState';
 
+const props = defineProps({
+  images: Array,
+});
+
 const sliderBackground = ref(null);
 const pixelsToAddResponsive = ref(21);
 
+const checkResponsiveImage = () => (pixelsToAddResponsive.value = window.innerWidth > 800 ? 21 : 2);
+
 onMounted(() => {
-  window.addEventListener('resize', (e) => {
-    pixelsToAddResponsive.value = window.innerWidth > 800 ? 21 : 2;
+  checkResponsiveImage();
+
+  window.addEventListener('resize', () => {
+    checkResponsiveImage();
   });
 });
 

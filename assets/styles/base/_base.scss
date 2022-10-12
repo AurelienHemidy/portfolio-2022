@@ -78,14 +78,14 @@ body {
 
 .page-enter-from,
 .page-leave-to {
-  opacity: 0;
+  // opacity: 0;
 }
 
 .page-leave-from,
 .page-enter-to {
-  opacity: 1;
+  // opacity: 1;
 }
 .page-enter-active,
 .page-leave-active {
-  transition: 0.5s all;
+  transition: 1.5s all;
 }

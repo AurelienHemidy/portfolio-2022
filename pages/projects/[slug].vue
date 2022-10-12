@@ -16,7 +16,7 @@
     </div>
 
     <ProjectCarouselMainImage />
-    <ProjectCarouselSlider />
+    <ProjectCarouselSlider :images="currentProject.images" />
 
     <div class="previous-project"></div>
     <div class="next-project"></div>
@@ -58,57 +58,6 @@ const { data: currentProject } = await useAsyncData(route.params.slug, () =>
 const { data } = await useAsyncData('previous-next-projects', () =>
   queryContent(`/project`).sort({ id: 1 }).findSurround(`/project/${route.params.slug}`)
 );
-
-const tlStartAnimationImage = gsap.timeline({ delay: 1 });
-const tlChangeImage = gsap.timeline({ paused: true });
-
-onMounted(() => {
-  tlStartAnimationImage
-    .to(picture.value, {
-      '--scaleX': 1,
-      duration: 0.7,
-      ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-    })
-    .set(picture.value, {
-      '--transform-origin': 'right',
-    })
-    .set(image.value, {
-      scaleX: 1,
-    })
-    .to(picture.value, {
-      '--scaleX': 0,
-      duration: 0.7,
-      ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-    });
-
-  tlChangeImage
-    .set(picture.value, {
-      '--transform-origin': 'left',
-    })
-    .to(picture.value, {
-      '--scaleX': 1,
-      duration: 0.7,
-      ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-      onComplete: () => {
-        image.value.setAttribute('src', '../../assets/background/image-of-me.png');
-      },
-    })
-    .set(image.value, {
-      scaleX: 1,
-    })
-    .set(picture.value, {
-      '--transform-origin': 'right',
-    })
-    .to(picture.value, {
-      '--scaleX': 0,
-      duration: 0.7,
-      ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-    });
-});
-
-const goToMainPage = () => {
-  router.push('/');
-};
 </script>
 
 <style lang="scss" scoped>

@@ -1,18 +1,13 @@
 <template>
   <div class="sliderImage">
-    <img
-      src="~/assets/background/forgotten-skies-image.png"
-      alt="forgotten skies img"
-      class="sliderImage__image"
-      :id="id"
-      @click="onClick"
-    />
+    <img :src="image.src" :alt="image.alt" class="sliderImage__image" :id="id" @click="onClick" />
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
   id: Number,
+  image: Object,
   onClick: Function,
 });
 </script>

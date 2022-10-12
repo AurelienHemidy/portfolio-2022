@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="link" class="link">
-    <div class="projectListItem" data-scroll data-scroll-offset="70">
+    <div class="projectListItem" data-scroll data-scroll-offset="70" :style="{ '--delay': 0.1 * props.delay + 's' }">
       <div class="projectListItem__index">
         <h3 class="projectListItem__index--text" ref="number">\ 0{{ props.number }}</h3>
       </div>
@@ -50,8 +50,6 @@ const link = `/projects/${props.slug}`;
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables/_variables.scss';
-
 .projectListItem {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -65,6 +63,17 @@ const link = `/projects/${props.slug}`;
   position: relative;
 
   padding: 25px 0;
+
+  *.page-enter-from &,
+  *.page-leave-to & {
+    transform: translateY(400%);
+    opacity: 0;
+  }
+
+  *.page-leave-active &,
+  *.page-enter-active & {
+    transition: 2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) var(--delay);
+  }
 
   @include md {
     margin-left: calc(100% / 12);
