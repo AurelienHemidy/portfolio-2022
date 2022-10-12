@@ -7,7 +7,38 @@
   "date": 2020,
   "link": "/mecanima",
   "slug": "mecanima",
-  "images": ["assets/"],
+  "images": [
+    {
+      "src": "/projects/forgotten-skies-image.png",
+      "alt": "",
+      "color": "#1D0259"
+    },
+    {
+      "src": "/projects/regards-dartisans-menu.jpg",
+      "alt": "",
+      "color": "#1D0259"
+    },
+    {
+      "src": "/projects/04_DECOUPE_TRACE_OUTILS.jpg",
+      "alt": "",
+      "color": "#1D0259"
+    },
+    {
+      "src": "/projects/03_ATELIER_ETAPE_1.jpg",
+      "alt": "",
+      "color": "#1D0259"
+    },
+    {
+      "src": "/projects/03_ATELIER_ETAPE_2.jpg",
+      "alt": "",
+      "color": "#1D0259"
+    },
+    {
+      "src": "/projects/03_ATELIER_ETAPE_3.jpg",
+      "alt": "",
+      "color": "#1D0259"
+    }
+  ],
   "techStack": ["NextJS", "SCSS", "Javascript", "Web Socket"],
   "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
 }
