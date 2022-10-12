@@ -15,9 +15,6 @@
 </template>
 
 <style lang="scss" scoped>
-@use 'sass:math';
-@import '@/assets/styles/variables/_variables.scss';
-
 $number-of-columns: 12;
 
 @for $i from 1 through 11 {

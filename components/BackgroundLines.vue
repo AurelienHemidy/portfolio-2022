@@ -15,9 +15,6 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@use 'sass:math';
-@import '@/assets/styles/variables/_variables.scss';
-
 @for $i from 1 through 5 {
   .background-line-#{$i} {
     height: calc((100 / 12 * 11vh));

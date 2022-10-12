@@ -15,7 +15,7 @@ definePageMeta({
     name: 'page',
     mode: 'out-in',
     appear: true,
-    duration: 500,
+    duration: 900,
     onLeave: () => console.log('leave'),
     onAfterEnter: () => console.log('enter'),
   },
