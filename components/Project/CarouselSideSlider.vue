@@ -21,12 +21,23 @@ import MainStore from '~/stores/globalState';
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   &__mainLine {
     height: 100%;
     width: 3px;
 
     background-color: #1b2c1e;
+
+    *.page-enter-from &,
+    *.page-leave-to & {
+      transform: translateY(100%);
+    }
+
+    *.page-enter-active &,
+    *.page-leave-active & {
+      transition: 1.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+    }
 
     &--slide {
       height: calc(100% / 6);

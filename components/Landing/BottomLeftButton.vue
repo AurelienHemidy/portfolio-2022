@@ -37,7 +37,7 @@
 
     *.page-enter-active &,
     *.page-leave-active & {
-      transition: 0.9s all;
+      transition: 0.9s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
     }
 
     cursor: pointer;

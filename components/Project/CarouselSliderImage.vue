@@ -28,5 +28,16 @@ const props = defineProps({
     width: 100%;
     height: 100%;
   }
+
+  *.page-enter-from &,
+  *.page-leave-to & {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+
+  *.page-leave-active &,
+  *.page-enter-active & {
+    transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  }
 }
 </style>

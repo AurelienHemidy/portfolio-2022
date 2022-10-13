@@ -1,8 +1,8 @@
 <template>
   <div class="projectTitle">
-    <h1 class="projectTitle__title">{{ title }}</h1>
-    <h5 class="projectTitle__context">{{ context }}</h5>
-    <p class="projectTitle__date">{{ date }}</p>
+    <h1 class="projectTitle__title"><TextRevealAnimation :text="title"></TextRevealAnimation></h1>
+    <h5 class="projectTitle__context"><TextRevealAnimation :text="context"></TextRevealAnimation></h5>
+    <p class="projectTitle__date"><TextRevealAnimation :text="date.toString()"></TextRevealAnimation></p>
   </div>
 </template>
 

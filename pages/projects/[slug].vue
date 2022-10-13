@@ -30,19 +30,13 @@
 </template>
 
 <script setup>
-import gsap from 'gsap';
-const slide = ref(null);
-const sliderBackground = ref(null);
-const picture = ref(null);
-const image = ref(null);
-
 definePageMeta({
   pageTransition: {
     name: 'page',
     mode: 'out-in',
-    duration: 500,
-    onLeave: () => console.log('leave'),
-    onAfterEnter: () => console.log('enter'),
+    duration: 3000,
+    onLeave: () => console.log(`leave project`),
+    onEnter: () => console.log(`enter project`),
   },
 });
 

@@ -41,7 +41,10 @@
 
       display: inline-block;
       position: absolute;
+
       bottom: min(25px, 1.8vw);
+
+      z-index: -1;
 
       @include md {
         font-size: 0.7rem;

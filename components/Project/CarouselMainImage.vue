@@ -2,7 +2,7 @@
   <div class="carouselMainImage">
     <div class="carouselMainImage__line-visit">
       <div class="carouselMainImage__line-visit--line"></div>
-      <h4 class="carouselMainImage__line-visit--text">Visit the site</h4>
+      <h4 class="carouselMainImage__line-visit--text"><TextRevealAnimation text="Visit the site" /></h4>
     </div>
     <picture class="carouselMainImage__picture" ref="picture">
       <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
@@ -32,8 +32,19 @@
     &--line {
       flex-grow: 1;
       height: 1px;
+      transform-origin: left;
 
       background-color: $primary-color;
+
+      *.page-enter-from &,
+      *.page-leave-to & {
+        flex-grow: 0;
+      }
+
+      *.page-leave-active &,
+      *.page-enter-active & {
+        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      }
     }
 
     &--text {
@@ -62,24 +73,53 @@
 
     overflow: hidden;
 
+    &::after {
+      content: '';
+
+      position: absolute;
+      left: 0;
+
+      height: 100%;
+      width: 100%;
+
+      background-color: $background-color;
+
+      transform-origin: right;
+
+      transform: scaleX(0);
+
+      *.page-enter-from &,
+      *.page-leave-to & {
+        transform: scaleX(1);
+      }
+
+      *.page-enter-active & {
+        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.1s;
+      }
+
+      *.page-leave-active & {
+        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.1s;
+      }
+    }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
 
-      transform: translateX(0) scaleX(1);
-      transform-origin: left;
+      transform: scale(1);
+      // transform-origin: lef;
 
       *.page-enter-from & {
-        transform: translateX(-100%) scaleX(0.8);
+        transform: scale(1.5);
       }
       *.page-leave-to & {
-        transform: translateX(100%) scaleX(0.8);
+        transform: scale(1.5);
       }
 
       *.page-leave-active &,
       *.page-enter-active & {
-        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
       }
     }
   }

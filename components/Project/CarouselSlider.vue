@@ -57,7 +57,7 @@ const onImageSliderClick = (e) => (MainStore.state.sliderImageID = e.target.getA
 
   position: relative;
 
-  transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  // transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
   @include md {
     padding: 0;
@@ -77,6 +77,18 @@ const onImageSliderClick = (e) => (MainStore.state.sliderImageID = e.target.getA
     background-color: $primary-color;
 
     transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+
+    *.page-enter-from &,
+    *.page-leave-to & {
+      opacity: 0;
+    }
+
+    *.page-leave-active & {
+      transition: 0.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    }
+    *.page-enter-active & {
+      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    }
 
     @include md {
       margin-left: -2px;

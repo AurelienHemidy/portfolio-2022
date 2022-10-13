@@ -32,6 +32,17 @@ const props = defineProps({
       padding: 2.5px 12.5px;
       margin: 0 7.5px 7.5px 0;
     }
+
+    *.page-enter-from &,
+    *.page-leave-to & {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    *.page-leave-active &,
+    *.page-enter-active & {
+      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    }
   }
 
   @include md {

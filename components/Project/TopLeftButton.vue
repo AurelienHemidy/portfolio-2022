@@ -43,6 +43,17 @@ const router = useRouter();
 
     cursor: pointer;
 
+    *.page-enter-from &,
+    *.page-leave-to & {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    *.page-enter-active &,
+    *.page-leave-active & {
+      transition: 1.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    }
+
     @include md {
       width: 30px;
       height: 30px;
