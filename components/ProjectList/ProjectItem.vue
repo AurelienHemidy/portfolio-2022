@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="link" class="link">
+  <NuxtLink :to="link" class="link linkProjects">
     <div class="projectListItem" data-scroll data-scroll-offset="70" :style="`--delay: ${0.1 * props.delay}s`">
       <div class="projectListItem__index">
         <h3 class="projectListItem__index--text" ref="number">\ 0{{ props.number }}</h3>
@@ -15,7 +15,9 @@
       </div>
 
       <div class="projectListItem__image">
-        <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
+        <picture class="projectListItem__image--picture">
+          <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
+        </picture>
       </div>
 
       <div class="projectListItem__arrow">
@@ -54,29 +56,72 @@ const link = `/projects/${props.slug}`;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
   grid-template-areas: 'number . name-context name-context date . image . arrow';
 
-  margin-left: calc(100% / 12 * 2);
-  margin-right: calc(100% / 12);
+  // margin-left: calc(100% / 12 * 2);
+  // margin-right: calc(100% / 12);
 
   position: relative;
 
   padding: 25px 0;
 
+  background-color: $background-color;
+
+  transform-origin: left;
+
+  // min-height: 140px;
+
+  // transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99) var(--delay + 0.2);
+
+  @include hover {
+    &::after {
+      transform-origin: left;
+      transform: scaleX(1);
+      opacity: 0.1;
+    }
+  }
+
   *.page-enter-from &,
   *.page-leave-to & {
-    transform: translateY(400%);
-    opacity: 0;
+    transform: scaleX(0);
   }
 
   *.page-leave-active &,
   *.page-enter-active & {
-    transition: 2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) var(--delay);
+    transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) var(--delay);
   }
 
-  @include md {
-    margin-left: calc(100% / 12);
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: $primary-color;
+
+    transform-origin: left;
+    transform: scaleX(0);
+
+    transition: 0.7s cubic-bezier(0.62, 0.05, 0.01, 0.99) var(--delay);
+
+    *.page-enter-from &,
+    *.page-leave-to & {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    *.page-leave-active & {
+      transform-origin: right;
+      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    }
+    *.page-enter-active & {
+      transform-origin: left;
+      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    }
   }
 
   @include sm {
@@ -90,8 +135,15 @@ const link = `/projects/${props.slug}`;
       transform: translateX(20%);
     }
 
+    // .projectListItem__title-context--title {
+    //   letter-spacing: 1px;
+    // }
+
     .projectListItem__image {
-      transform: translateX(-20%);
+      transform: scale(0.9);
+      img {
+        transform: scale(1.2);
+      }
     }
 
     .projectListItem__arrow {
@@ -104,7 +156,7 @@ const link = `/projects/${props.slug}`;
   &__index {
     grid-area: number;
 
-    transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
 
     &--text {
       font-family: 'Butler';
@@ -131,6 +183,8 @@ const link = `/projects/${props.slug}`;
 
       line-height: 2.2rem;
       line-height: min(2.2rem, 3vw);
+
+      transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
 
       @include sm {
         font-size: 1.6875rem;
@@ -172,19 +226,40 @@ const link = `/projects/${props.slug}`;
 
     position: relative;
 
-    transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    // background-color: blue;
+
+    transition: 1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
     @include sm {
       display: none;
     }
 
-    img {
-      width: calc(100% + 50px);
+    // img {
+    //   width: calc(100% + 50px);
+    //   height: 100%;
+    //   transform: translateX(-25px);
+    //   object-fit: cover;
+    // }
+
+    &--picture {
+      width: 100%;
+      max-width: 8rem;
       height: 100%;
+      // transform: translateX(-25px);
 
-      transform: translateX(-25px);
+      position: absolute;
+      overflow: hidden;
 
-      object-fit: cover;
+      // background-color: red;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        transition: 1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+        // display: none;
+      }
     }
   }
   &__arrow {
@@ -195,7 +270,7 @@ const link = `/projects/${props.slug}`;
     margin-top: 10px;
 
     svg {
-      transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
       path {
         fill: $primary-color;
       }

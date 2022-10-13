@@ -2,7 +2,7 @@
   <div class="projectList" id="projects">
     <h1 class="projectList__title"><TextRevealAnimation text="Work"></TextRevealAnimation></h1>
 
-    <Project
+    <ProjectItem
       :number="i + 1"
       :isFirst="i === 0"
       v-for="(project, i) in allProjects"

@@ -18,6 +18,17 @@ body {
   color: inherit;
 }
 
+.linkProjects {
+  margin-left: calc(100% / 12 * 2);
+  margin-right: calc(100% / 12);
+
+  display: block;
+
+  @include md {
+    margin-left: calc(100% / 12);
+  }
+}
+
 .page-enter-active,
 .page-leave-active {
   transition: 2.5s all;

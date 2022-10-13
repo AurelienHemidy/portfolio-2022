@@ -1,5 +1,7 @@
 <template>
-  <h5 class="paragraphTitle" v-html="props.content" />
+  <h5 class="paragraphTitle">
+    <TextRevealAnimation :text="content" />
+  </h5>
 </template>
 
 <script setup>
@@ -15,16 +17,7 @@ const props = defineProps({
 
   margin-bottom: 20px;
 
-  *.page-enter-from &,
-  *.page-leave-to & {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  *.page-enter-active &,
-  *.page-leave-active & {
-    transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
-  }
+  overflow: hidden;
 
   @include xl {
     font-size: 1.2rem;

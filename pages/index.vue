@@ -1,7 +1,7 @@
 <template>
   <div data-scroll-container>
     <Landing />
-    <Projects />
+    <ProjectList />
     <Contact />
     <div class="whitespace"></div>
   </div>
