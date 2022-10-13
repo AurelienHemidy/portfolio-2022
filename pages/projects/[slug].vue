@@ -15,7 +15,7 @@
       <ProjectTagList :tagList="currentProject.techStack" />
     </div>
 
-    <ProjectCarouselMainImage />
+    <ProjectCarouselMainImage :images="currentProject.images" />
     <ProjectCarouselSlider :images="currentProject.images" />
 
     <div class="previous-project"></div>

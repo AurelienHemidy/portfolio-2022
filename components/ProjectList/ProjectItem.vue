@@ -186,6 +186,7 @@ const link = `/projects/${props.slug}`;
 
     &--title {
       font-size: min(2rem, 2vw);
+      white-space: nowrap;
 
       margin-bottom: 20px;
 
@@ -198,6 +199,7 @@ const link = `/projects/${props.slug}`;
         font-size: 1.6875rem;
         line-height: 1.5625rem;
         letter-spacing: -1.35px;
+        white-space: initial;
       }
     }
 

@@ -5,12 +5,44 @@
       <h4 class="carouselMainImage__line-visit--text"><TextRevealAnimation text="Visit the site" /></h4>
     </div>
     <picture class="carouselMainImage__picture" ref="picture">
-      <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
+      <img :src="selectedImage" :alt="props.images[MainStore.state.sliderImageID].alt" />
     </picture>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import gsap from 'gsap';
+import MainStore from '~~/stores/globalState';
+
+const props = defineProps({
+  images: Array,
+});
+
+const changeImageTimeLine = gsap.timeline({ paused: true });
+
+const selectedImage = ref(props.images[MainStore.state.sliderImageID].src);
+const isAnimating = ref(false);
+
+watch(MainStore.state, (state) => {
+  // isAnimating.value = true;
+  // changeImageTimeLine
+  //   .to(
+  //     {},
+  //     {
+  //       duration: 0.7,
+  //       onComplete: () => (selectedImage.value = props.images[state.sliderImageID].src),
+  //     }
+  //   )
+  //   .to(
+  //     {},
+  //     {
+  //       duration: 0.8,
+  //       onComplete: () => (isAnimating.value = false),
+  //     }
+  //   );
+  // changeImageTimeLine.restart();
+});
+</script>
 
 <style lang="scss" scoped>
 .carouselMainImage {
@@ -56,10 +88,18 @@
       font-size: 0.9rem;
 
       cursor: pointer;
+
+      animation-timing-function: ease;
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+
+      @include hover {
+        animation-name: anim-link;
+      }
     }
   }
 
-  picture {
+  &__picture {
     width: 100%;
     position: absolute;
 
@@ -69,6 +109,12 @@
 
     @include md {
       height: calc(100% - 2.5rem);
+    }
+
+    &.animatingOnchange {
+      &::after {
+        animation-name: anim-change-image;
+      }
     }
 
     overflow: hidden;
@@ -87,6 +133,10 @@
       transform-origin: right;
 
       transform: scaleX(0);
+
+      animation-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      animation-duration: 1.5s;
+      animation-fill-mode: both;
 
       *.page-enter-from &,
       *.page-leave-to & {
@@ -108,13 +158,12 @@
       object-fit: cover;
 
       transform: scale(1);
-      // transform-origin: lef;
 
       *.page-enter-from & {
         transform: scale(1.5);
       }
       *.page-leave-to & {
-        transform: scale(1.5);
+        transform: scale(1.2);
       }
 
       *.page-leave-active &,
@@ -122,6 +171,45 @@
         transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
       }
     }
+  }
+}
+
+@keyframes anim-link {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  50.0001% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes anim-change-image {
+  0% {
+    background-color: $primary-color;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  50% {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  50.0001% {
+    transform-origin: right;
+    transform: scaleX(1);
+  }
+  100% {
+    background-color: $primary-color;
+    transform-origin: right;
+    transform: scaleX(0);
   }
 }
 </style>
