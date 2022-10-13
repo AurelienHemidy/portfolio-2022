@@ -62,6 +62,10 @@ const router = useRouter();
     svg {
       transform: rotate(90deg);
 
+      animation-timing-function: ease;
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+
       @include md {
         width: 10px;
       }
@@ -70,6 +74,30 @@ const router = useRouter();
         fill: $primary-color;
       }
     }
+
+    @include hover {
+      svg {
+        animation-name: anim-button;
+      }
+    }
+  }
+}
+
+@keyframes anim-button {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(-100%, 0, 0) rotate(90deg);
+    opacity: 0;
+  }
+  50.0001% {
+    transform: translate3d(100%, 0, 0) rotate(90deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(90deg);
+    opacity: 1;
   }
 }
 </style>
