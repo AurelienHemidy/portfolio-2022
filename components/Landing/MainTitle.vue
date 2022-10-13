@@ -1,7 +1,11 @@
 <template>
   <div class="mainTitle">
-    <h1 class="mainTitle__name">Aurélien</h1>
-    <h1 class="mainTitle__surname">Hémidy</h1>
+    <h1 class="mainTitle__name"><TextRevealAnimation text="Aurélien"></TextRevealAnimation></h1>
+    <h1 class="mainTitle__surname">
+      <TextRevealAnimation text="Hémidy" :delay="0.2">
+        <span class="mainTitle__surname--job">FRONT-END DEVELOPER</span>
+      </TextRevealAnimation>
+    </h1>
   </div>
 </template>
 
@@ -25,49 +29,33 @@
   }
 
   &__name {
-    *.page-enter-from & {
-      transform: translateY(100%);
-    }
-    *.page-leave-to & {
-      transform: translateY(100%);
-    }
-
-    *.page-enter-active &,
-    *.page-leave-active & {
-      transition: 0.8s all ease;
-    }
   }
 
   &__surname {
     position: relative;
 
-    *.page-enter-from & {
-      transform: translateY(100%);
-    }
-    *.page-leave-to & {
-      transform: translateY(100%);
-    }
-
-    *.page-enter-active &,
-    *.page-leave-active & {
-      transition: 0.8s all ease;
-    }
-
-    &::after {
-      content: 'FRONT-END DEVELOPER';
-
+    &--job {
       font-family: 'Oswald';
       color: $primary-color;
+      font-size: min(1rem, 1.3vw);
 
+      display: inline-block;
       position: absolute;
       bottom: min(25px, 1.8vw);
 
-      font-size: min(1rem, 1.3vw);
-    }
-
-    @include md {
-      &::after {
+      @include md {
         font-size: 0.7rem;
+      }
+
+      *.page-enter-from &,
+      *.page-leave-to & {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      *.page-enter-active &,
+      *.page-leave-active & {
+        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
       }
     }
   }

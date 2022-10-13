@@ -1,6 +1,7 @@
 <template>
-  <div data-scroll :data-scroll-offset="props.offset || 70" class="text-reveal">
-    <span>{{ props.text }}</span>
+  <div data-scroll :data-scroll-offset="props.offset || 70" class="textReveal" :style="`--delay: ${delay || 0}s`">
+    <span class="textReveal__text">{{ props.text }}</span>
+    <slot />
   </div>
 </template>
 
@@ -8,16 +9,18 @@
 const props = defineProps({
   text: String,
   offset: Number,
+  delay: Number,
 });
 </script>
 
 <style lang="scss">
-.text-reveal {
+.textReveal {
   overflow: hidden;
-  span {
-    // transform: translateY(80%);
 
-    display: block;
+  &__text {
+    position: relative;
+
+    display: inline-block;
 
     transition-duration: 1.5s;
     transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
@@ -30,14 +33,8 @@ const props = defineProps({
 
     *.page-leave-active &,
     *.page-enter-active & {
-      transition: 2s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      transition: 2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) var(--delay);
     }
   }
-
-  // &.is-inview {
-  //   span {
-  //     transform: translateY(0);
-  //   }
-  // }
 }
 </style>

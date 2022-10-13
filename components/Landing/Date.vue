@@ -1,6 +1,6 @@
 <template>
   <div class="dateTitle">
-    <h5 class="dateTitle__text">2022</h5>
+    <h5 class="dateTitle__text"><TextRevealAnimation text="2022" /></h5>
   </div>
 </template>
 

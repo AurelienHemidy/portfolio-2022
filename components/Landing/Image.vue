@@ -1,63 +1,19 @@
 <template>
-  <div class="imageLanding image">
-    <picture ref="image" id="image" @mouseenter="onHover" @mouseleave="onHover">
-      <img src="~/assets/background/image-of-me.png" alt="arrow icon" />
+  <div class="imageLanding">
+    <picture class="imageLanding__picture" ref="image" id="image" @mouseenter="onHover" @mouseleave="onHover">
+      <img
+        class="imageLanding__picture--image"
+        src="~/assets/background/image-of-me.png"
+        alt="picture of the developer"
+      />
     </picture>
   </div>
 </template>
 
 <script setup>
-import gsap from 'gsap';
-
-const tlRightLine = gsap.timeline({ paused: true });
-
 const props = defineProps({
   onHover: Function,
 });
-
-// const propertiesToAnimate = {
-//   '--letter-spacing-projects': '5px',
-//   '--anim-landing-page-line-in': 'line-anim-in 0.6s forwards',
-//   '--anim-landing-page-text-out': 'text-anim-in 0.6s forwards',
-// };
-
-// const onMouseEnterImage = () =>
-//   Object.entries(propertiesToAnimate).forEach(([key, value]) => document.documentElement.style.setProperty(key, value));
-// const onMouseLeaveImage = () =>
-//   Object.entries(propertiesToAnimate).forEach(([key, value]) => document.documentElement.style.setProperty(key, '1px'));
-
-// tlRightLine
-//   .to(rightLine.value, {
-//     scaleX: 1.5,
-//     opacity: 1,
-//     duration: 0.3,
-//     ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-//   })
-//   .to(projectTextLeft.value, {
-//     letterSpacing: '5px',
-//     duration: 0.4,
-//     ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-//   })
-//   .to(
-//     rightLine.value,
-//     {
-//       scaleX: 1,
-//       x: '50%',
-//       duration: 0.3,
-//       ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-//     },
-//     '<'
-//   )
-//   .to(
-//     rightLineText.value,
-//     {
-//       x: '0%',
-//       opacity: 1,
-//       duration: 0.3,
-//       ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-//     },
-//     '<'
-//   );
 </script>
 
 <style lang="scss" scoped>
@@ -71,19 +27,69 @@ const props = defineProps({
   cursor: pointer;
   position: relative;
 
-  picture {
+  &__picture {
     width: 100%;
     height: 100%;
 
+    position: absolute;
+
     transform: scale(1.05);
+    transform-origin: bottom;
 
     object-fit: cover;
 
     transition-duration: 1s;
     transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
+    *.page-enter-from &,
+    *.page-leave-to & {
+      transform: scale(1.05, 0);
+    }
+
+    *.page-enter-active & {
+      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.7s;
+    }
+    *.page-leave-active & {
+      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.7s;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      left: 0;
+
+      height: 100%;
+      width: 100%;
+
+      background-color: $primary-color;
+
+      transform-origin: top;
+
+      transform: scaleY(0);
+
+      *.page-enter-from &,
+      *.page-leave-to & {
+        transform: scaleY(1);
+      }
+
+      *.page-enter-active & {
+        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 1.2s;
+      }
+
+      *.page-leave-active & {
+        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+      }
+    }
+
     @include hover {
       transform: scale(0.9);
+    }
+
+    &--image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 

@@ -60,10 +60,27 @@
       height: calc(100% - 2.5rem);
     }
 
+    overflow: hidden;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+
+      transform: translateX(0) scaleX(1);
+      transform-origin: left;
+
+      *.page-enter-from & {
+        transform: translateX(-100%) scaleX(0.8);
+      }
+      *.page-leave-to & {
+        transform: translateX(100%) scaleX(0.8);
+      }
+
+      *.page-leave-active &,
+      *.page-enter-active & {
+        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+      }
     }
   }
 }

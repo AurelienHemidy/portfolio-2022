@@ -29,6 +29,17 @@
 
     background-color: $primary-color;
 
+    *.page-enter-from &,
+    *.page-leave-to & {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    *.page-enter-active &,
+    *.page-leave-active & {
+      transition: 0.9s all;
+    }
+
     cursor: pointer;
 
     @include md {

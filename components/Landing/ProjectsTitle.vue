@@ -38,6 +38,17 @@ const props = defineProps({
     &__animation {
       letter-spacing: 5px;
     }
+
+    *.page-enter-from &,
+    *.page-leave-to & {
+      letter-spacing: 5px;
+      opacity: 0;
+    }
+
+    *.page-enter-active &,
+    *.page-leave-active & {
+      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    }
   }
 }
 </style>
