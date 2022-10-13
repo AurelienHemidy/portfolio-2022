@@ -226,31 +226,19 @@ const link = `/projects/${props.slug}`;
 
     position: relative;
 
-    // background-color: blue;
-
     transition: 1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
     @include sm {
       display: none;
     }
 
-    // img {
-    //   width: calc(100% + 50px);
-    //   height: 100%;
-    //   transform: translateX(-25px);
-    //   object-fit: cover;
-    // }
-
     &--picture {
       width: 100%;
       max-width: 8rem;
       height: 100%;
-      // transform: translateX(-25px);
 
       position: absolute;
       overflow: hidden;
-
-      // background-color: red;
 
       img {
         width: 100%;
@@ -258,7 +246,6 @@ const link = `/projects/${props.slug}`;
         object-fit: cover;
 
         transition: 1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
-        // display: none;
       }
     }
   }
