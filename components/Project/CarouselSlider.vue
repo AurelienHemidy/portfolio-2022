@@ -34,13 +34,6 @@ onMounted(() => {
 });
 
 const onImageSliderClick = (e) => (MainStore.state.sliderImageID = e.target.getAttribute('id'));
-
-// gsap.to(picture.value, {
-//   '--scaleX': 0,
-//   duration: 0.1,
-//   ease: 'cubic-bezier(0.62, 0.05, 0.01, 0.99)',
-//   delay: 1,
-// });
 </script>
 
 <style lang="scss" scoped>
@@ -56,8 +49,6 @@ const onImageSliderClick = (e) => (MainStore.state.sliderImageID = e.target.getA
   grid-template-areas: '. . . . . .';
 
   position: relative;
-
-  // transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
   @include md {
     padding: 0;

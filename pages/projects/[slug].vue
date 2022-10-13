@@ -30,18 +30,19 @@
 </template>
 
 <script setup>
+import MainStore from '~~/stores/globalState';
+
 definePageMeta({
   pageTransition: {
     name: 'page',
     mode: 'out-in',
     duration: 3000,
-    onLeave: () => console.log(`leave project`),
+    onLeave: () => (MainStore.state.sliderImageID = 0),
     onEnter: () => console.log(`enter project`),
   },
 });
 
 const route = useRoute();
-const router = useRouter();
 
 // Current Project
 const { data: currentProject } = await useAsyncData(route.params.slug, () =>

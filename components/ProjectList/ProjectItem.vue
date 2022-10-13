@@ -76,8 +76,8 @@ const link = `/projects/${props.slug}`;
   @include hover {
     &::after {
       transform-origin: left;
-      transform: scaleX(1);
-      opacity: 0.1;
+      // transform: scaleX(1);
+      // opacity: 0.05;
     }
   }
 
@@ -132,19 +132,27 @@ const link = `/projects/${props.slug}`;
 
   @include hover {
     .projectListItem__index {
-      transform: translateX(20%);
+      transform: translateX(10%);
     }
 
-    // .projectListItem__title-context--title {
-    //   letter-spacing: 1px;
+    .projectListItem__title-context--title {
+      transform: translateX(10%);
+      letter-spacing: 1.5px;
+    }
+    .projectListItem__title-context--context {
+      transform: translateX(10%);
+    }
+
+    .projectListItem__date--text {
+      transform: translateX(10%);
+    }
+
+    // .projectListItem__image {
+    //   transform: scale(0.9);
+    //   img {
+    //     transform: scale(1.2);
+    //   }
     // }
-
-    .projectListItem__image {
-      transform: scale(0.9);
-      img {
-        transform: scale(1.2);
-      }
-    }
 
     .projectListItem__arrow {
       svg {
@@ -156,7 +164,7 @@ const link = `/projects/${props.slug}`;
   &__index {
     grid-area: number;
 
-    transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+    transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
     &--text {
       font-family: 'Butler';
@@ -184,7 +192,7 @@ const link = `/projects/${props.slug}`;
       line-height: 2.2rem;
       line-height: min(2.2rem, 3vw);
 
-      transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+      transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
       @include sm {
         font-size: 1.6875rem;
@@ -196,6 +204,8 @@ const link = `/projects/${props.slug}`;
     &--context {
       font-family: 'Open Sans';
       font-size: min(1rem, 1.25vw);
+
+      transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
       @include sm {
         display: none;
@@ -214,6 +224,8 @@ const link = `/projects/${props.slug}`;
       font-size: 1rem;
       font-size: min(1rem, 1.5vw);
       line-height: 2.5rem;
+
+      transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
       @include sm {
         font-size: 0.7rem;
