@@ -17,5 +17,17 @@
   height: 1px;
 
   opacity: 0.5;
+
+  transform-origin: left;
+
+  *.page-enter-from &,
+  *.page-leave-to & {
+    transform: scaleX(0);
+  }
+
+  *.page-leave-active &,
+  *.page-enter-active & {
+    transition: 2.2s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  }
 }
 </style>
