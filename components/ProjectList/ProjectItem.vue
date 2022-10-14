@@ -147,12 +147,9 @@ const link = `/projects/${props.slug}`;
       transform: translateX(10%);
     }
 
-    // .projectListItem__image {
-    //   transform: scale(0.9);
-    //   img {
-    //     transform: scale(1.2);
-    //   }
-    // }
+    .projectListItem__image {
+      transform: translateX(10%);
+    }
 
     .projectListItem__arrow {
       svg {
