@@ -33,7 +33,9 @@ onMounted(() => {
   });
 });
 
-const onImageSliderClick = (e) => (MainStore.state.sliderImageID = e.target.getAttribute('id'));
+const onImageSliderClick = (e) => {
+  if (!MainStore.state.isImageChanging) MainStore.state.sliderImageID = e.target.getAttribute('id');
+};
 </script>
 
 <style lang="scss" scoped>

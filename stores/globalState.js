@@ -1,5 +1,6 @@
 const MainState = reactive({
   sliderImageID: 0,
+  isImageChanging: false,
 });
 
 const MainGetters = {};

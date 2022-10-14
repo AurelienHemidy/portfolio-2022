@@ -4,7 +4,7 @@
       <div class="carouselMainImage__line-visit--line"></div>
       <h4 class="carouselMainImage__line-visit--text"><TextRevealAnimation text="Visit the site" /></h4>
     </div>
-    <picture class="carouselMainImage__picture" ref="picture">
+    <picture class="carouselMainImage__picture" ref="picture" :class="isAnimating ? 'animatingOnchange' : ''">
       <img :src="selectedImage" :alt="props.images[MainStore.state.sliderImageID].alt" />
     </picture>
   </div>
@@ -18,30 +18,31 @@ const props = defineProps({
   images: Array,
 });
 
-const changeImageTimeLine = gsap.timeline({ paused: true });
-
 const selectedImage = ref(props.images[MainStore.state.sliderImageID].src);
 const isAnimating = ref(false);
 
-watch(MainStore.state, (state) => {
-  // isAnimating.value = true;
-  // changeImageTimeLine
-  //   .to(
-  //     {},
-  //     {
-  //       duration: 0.7,
-  //       onComplete: () => (selectedImage.value = props.images[state.sliderImageID].src),
-  //     }
-  //   )
-  //   .to(
-  //     {},
-  //     {
-  //       duration: 0.8,
-  //       onComplete: () => (isAnimating.value = false),
-  //     }
-  //   );
-  // changeImageTimeLine.restart();
-});
+const changeImage = (sliderImageID) => {
+  isAnimating.value = true;
+  MainStore.state.isImageChanging = true;
+
+  const changeImage = setTimeout(() => {
+    selectedImage.value = props.images[sliderImageID].src;
+
+    clearTimeout(changeImage);
+  }, 500);
+
+  const resetAnimation = setTimeout(() => {
+    isAnimating.value = false;
+    MainStore.state.isImageChanging = false;
+
+    clearTimeout(resetAnimation);
+  }, 1000);
+};
+
+watch(
+  () => MainStore.state.sliderImageID,
+  (sliderImageID) => changeImage(sliderImageID)
+);
 </script>
 
 <style lang="scss" scoped>
@@ -127,6 +128,7 @@ watch(MainStore.state, (state) => {
 
       height: 100%;
       width: 100%;
+      z-index: 9999;
 
       background-color: $background-color;
 
@@ -135,7 +137,7 @@ watch(MainStore.state, (state) => {
       transform: scaleX(0);
 
       animation-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
-      animation-duration: 1.5s;
+      animation-duration: 1s;
       animation-fill-mode: both;
 
       *.page-enter-from &,
