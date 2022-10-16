@@ -89,6 +89,10 @@ useHead({
       rel: 'apple-touche-icon',
       href: 'favicon/favicon.ico',
     },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css?family=Oswald|Fira+Sans',
+    },
   ],
 });
 </script>

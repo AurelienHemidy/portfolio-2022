@@ -59,7 +59,7 @@
     &--item {
       font-size: 1rem;
       color: $secondary-color;
-      font-family: 'Open Sans';
+      font-family: 'Fira Sans', sans-serif;
 
       margin-bottom: 10px;
     }

@@ -25,8 +25,8 @@ const props = defineProps({
 
     border: 1px solid var(--theme-color);
 
-    font-family: 'Open Sans';
-    font-weight: 300;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 200;
 
     @include xl {
       padding: 2.5px 12.5px;
