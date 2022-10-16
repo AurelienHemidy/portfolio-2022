@@ -27,7 +27,7 @@ import MainStore from '~/stores/globalState';
     height: 100%;
     width: 3px;
 
-    background-color: #1b2c1e;
+    background-color: #2c352e;
 
     *.page-enter-from &,
     *.page-leave-to & {
@@ -45,7 +45,7 @@ import MainStore from '~/stores/globalState';
 
       position: relative;
 
-      background-color: $primary-color;
+      background-color: var(--theme-color);
 
       transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
     }

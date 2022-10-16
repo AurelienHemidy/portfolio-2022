@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="backgroundLine-1" :class="isProject ? 'isProject' : ''"></div>
-    <div class="backgroundLine-2" :class="isProject ? 'isProject' : ''"></div>
-    <div class="backgroundLine-3" :class="isProject ? 'isProject' : ''"></div>
-    <div class="backgroundLine-4" :class="isProject ? 'isProject' : ''"></div>
-    <div class="backgroundLine-5" :class="isProject ? 'isProject' : ''"></div>
+    <div class="backgroundLine-1" :class="isProject ? 'isProject' : 'isLanding'"></div>
+    <div class="backgroundLine-2" :class="isProject ? 'isProject' : 'isLanding'"></div>
+    <div class="backgroundLine-3" :class="isProject ? 'isProject' : 'isLanding'"></div>
+    <div class="backgroundLine-4" :class="isProject ? 'isProject' : 'isLanding'"></div>
+    <div class="backgroundLine-5" :class="isProject ? 'isProject' : 'isLanding'"></div>
   </div>
 </template>
 
@@ -33,17 +33,29 @@ const props = defineProps({
 
     z-index: -1;
     &.isProject {
+      background-color: var(--theme-color);
       height: 100vh;
+      *.page-enter-from &,
+      *.page-leave-to & {
+        transform: scaleY(0) translateX(-50%);
+      }
+
+      *.page-leave-active &,
+      *.page-enter-active & {
+        transition: 1.2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+      }
     }
 
-    *.page-enter-from &,
-    *.page-leave-to & {
-      transform: scaleY(0) translateX(-50%);
-    }
+    &.isLanding {
+      *.page-enter-from &,
+      *.page-leave-to & {
+        transform: scaleY(0) translateX(-50%);
+      }
 
-    *.page-leave-active &,
-    *.page-enter-active & {
-      transition: 2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.5s;
+      *.page-leave-active &,
+      *.page-enter-active & {
+        transition: 1.2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+      }
     }
   }
 }

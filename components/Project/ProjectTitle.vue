@@ -33,7 +33,7 @@ const props = defineProps({
 
   &__context {
     font-size: 1.2rem;
-    color: $primary-color;
+    color: var(--theme-color);
 
     margin-bottom: 10px;
     white-space: nowrap;

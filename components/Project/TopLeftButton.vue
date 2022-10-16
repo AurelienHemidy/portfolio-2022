@@ -12,8 +12,6 @@
 </template>
 
 <script setup>
-import MainStore from '~/stores/globalState';
-
 const router = useRouter();
 
 const backToMainPage = () => {
@@ -41,7 +39,7 @@ const backToMainPage = () => {
     border: none;
 
     background-color: transparent;
-    border: 1.5px solid $primary-color;
+    border: 1.5px solid var(--theme-color);
 
     display: flex;
     align-items: center;
@@ -77,7 +75,7 @@ const backToMainPage = () => {
       }
 
       path {
-        fill: $primary-color;
+        fill: var(--theme-color);
       }
     }
 

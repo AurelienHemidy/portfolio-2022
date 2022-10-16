@@ -164,11 +164,13 @@ const link = `/projects/${props.slug}`;
     transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
     &--text {
-      font-family: 'Butler';
+      // font-family: 'Butler';
       color: $primary-color;
-      font-size: 2.5rem;
+      // font-size: 2.5rem;
       font-size: min(2.5rem, 4vw);
       font-weight: 900;
+
+      line-height: 1;
 
       white-space: nowrap;
 
@@ -201,7 +203,7 @@ const link = `/projects/${props.slug}`;
     }
 
     &--context {
-      font-family: 'Open Sans';
+      font-family: 'Fira Sans';
       font-size: min(1rem, 1.25vw);
 
       transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);

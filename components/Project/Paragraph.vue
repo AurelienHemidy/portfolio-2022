@@ -12,7 +12,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .paragraph {
-  font-family: 'Open Sans';
+  font-family: 'Fira Sans';
   font-weight: 300;
   font-size: 0.9rem;
   margin-bottom: 30px;

@@ -5,7 +5,7 @@
       :class="isAnimating ? 'projectsLanding__text__animation' : ''"
       ref="projectTextLeft"
     >
-      PROJECTS
+      Portfolio
     </p>
   </div>
 </template>
@@ -28,12 +28,14 @@ const props = defineProps({
     color: $primary-color;
     font-weight: 500;
     font-size: 2rem;
+    text-transform: uppercase;
 
     transition: 0.4s letter-spacing cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.3s;
 
     position: absolute;
 
-    transform: rotate(90deg) translateY(-50%);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
 
     &__animation {
       letter-spacing: 5px;

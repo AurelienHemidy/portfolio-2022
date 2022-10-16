@@ -47,10 +47,10 @@ const props = defineProps({
     }
 
     *.page-enter-active & {
-      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.7s;
+      transition: 0.8s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
     }
     *.page-leave-active & {
-      transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.7s;
+      transition: 0.8s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.4s;
     }
 
     &::after {
@@ -74,11 +74,11 @@ const props = defineProps({
       }
 
       *.page-enter-active & {
-        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 1.2s;
+        transition: 0.8s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.4s;
       }
 
       *.page-leave-active & {
-        transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
+        transition: 0.8s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.2s;
       }
     }
 

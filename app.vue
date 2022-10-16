@@ -76,18 +76,18 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: '/favicon.ico',
+      content: 'favicon/favicon.ico',
     },
   ],
   link: [
     {
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico',
+      href: 'favicon/favicon.ico',
     },
     {
       rel: 'apple-touche-icon',
-      href: '/favicon.ico',
+      href: 'favicon/favicon.ico',
     },
   ],
 });

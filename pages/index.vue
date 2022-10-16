@@ -15,7 +15,7 @@ definePageMeta({
     name: 'page',
     mode: 'out-in',
     appear: true,
-    duration: 2500,
+    duration: 1200,
     onLeave: () => console.log('leave index'),
     onEnter: () => console.log('enter index'),
   },

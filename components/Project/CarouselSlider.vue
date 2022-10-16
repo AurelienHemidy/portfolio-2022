@@ -7,7 +7,7 @@
       translateX(calc(
         ${100 * MainStore.state.sliderImageID}% + 
         ${pixelsToAddResponsive * MainStore.state.sliderImageID}px) 
-      )`"
+      ) scale(1.05, 1.1)`"
     ></div>
     <ProjectCarouselSliderImage v-for="(image, i) in images" :id="i" :onClick="onImageSliderClick" :image="image" />
   </div>
@@ -67,7 +67,8 @@ const onImageSliderClick = (e) => {
 
     z-index: -1;
 
-    background-color: $primary-color;
+    // background-color: $primary-color;
+    border: 1px solid var(--theme-color);
 
     transition: 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 

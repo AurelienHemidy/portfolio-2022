@@ -1,40 +1,42 @@
 <template>
-  <ProjectGrid>
-    <ProjectTopLeftButton />
+  <div :style="`--theme-color: ${currentProject.themeColor}`">
+    <ProjectGrid>
+      <ProjectTopLeftButton />
 
-    <ProjectTitle :title="currentProject.title" :context="currentProject.context" :date="currentProject.date" />
+      <ProjectTitle :title="currentProject.title" :context="currentProject.context" :date="currentProject.date" />
 
-    <div class="projects">
-      <ProjectParagraphTitle content="the project" />
-      <ProjectParagraph :content="currentProject.description" />
+      <div class="projects">
+        <ProjectParagraphTitle content="the project" />
+        <ProjectParagraph :content="currentProject.description" />
 
-      <ProjectParagraphTitle content="why ?" />
-      <ProjectParagraph :content="currentProject.why" />
+        <ProjectParagraphTitle content="why ?" />
+        <ProjectParagraph :content="currentProject.why" />
 
-      <ProjectParagraphTitle content="tech stack" />
-      <ProjectTagList :tagList="currentProject.techStack" />
-    </div>
+        <ProjectParagraphTitle content="tech stack" />
+        <ProjectTagList :tagList="currentProject.techStack" />
+      </div>
 
-    <ProjectCarouselMainImage :images="currentProject.images" />
-    <ProjectCarouselSlider :images="currentProject.images" />
+      <ProjectCarouselMainImage :images="currentProject.images" :link="currentProject.link" />
+      <ProjectCarouselSlider :images="currentProject.images" />
 
-    <div class="previous-project">
-      <NuxtLink :to="previousProjectLink"
-        ><p>{{ previousProject.title }}</p></NuxtLink
-      >
-    </div>
-    <div class="next-project">
-      <NuxtLink :to="nextProjectLink"
-        ><p>{{ nextProject.title }}</p></NuxtLink
-      >
-    </div>
+      <div class="previous-project">
+        <NuxtLink :to="previousProjectLink"
+          ><p>{{ previousProject.title }}</p></NuxtLink
+        >
+      </div>
+      <div class="next-project">
+        <NuxtLink :to="nextProjectLink"
+          ><p>{{ nextProject.title }}</p></NuxtLink
+        >
+      </div>
 
-    <ProjectCarouselSideSlider />
+      <ProjectCarouselSideSlider />
 
-    <ProjectRights />
+      <ProjectRights />
 
-    <BackgroundLines isProject />
-  </ProjectGrid>
+      <BackgroundLines isProject />
+    </ProjectGrid>
+  </div>
 </template>
 
 <script setup>
@@ -44,7 +46,7 @@ definePageMeta({
   pageTransition: {
     name: 'page',
     mode: 'out-in',
-    duration: 3000,
+    duration: 1200,
     onLeave: () => (MainStore.state.sliderImageID = 0),
     onEnter: () => console.log(`enter project`),
   },
@@ -57,21 +59,19 @@ const { data: currentProject } = await useAsyncData(route.params.slug, () =>
   queryContent('/project', route.params.slug).findOne()
 );
 
-// Next and Previous projects
-// const { data: previousNextProjects } = await useAsyncData('previous-next-projects', () =>
-//   queryContent(`/project`).sort({ id: 1 }).findSurround(`/project/${route.params.slug}`)
-// );
-
 const { data: allProjects } = await useAsyncData('all-projects', () => queryContent('/project').sort({ id: 1 }).find());
 const previousIndex =
   currentProject.value.id == 0
     ? allProjects.value.length - 1
     : (currentProject.value.id - 1) % allProjects.value.length;
-const nextIndex = currentProject.value.id + (1 % allProjects.value.length);
+
+const nextIndex = (currentProject.value.id + 1) % allProjects.value.length;
 
 const previousProject = allProjects.value[previousIndex];
 const nextProject = allProjects.value[nextIndex];
 
+console.log(previousIndex);
+console.log(nextIndex);
 console.log(`/projects/${previousProject.slug}`);
 console.log(`/projects/${nextProject.slug}`);
 // console.log(allProjects.value[previousIndex].slug, allProjects.value[4]);

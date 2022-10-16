@@ -15,8 +15,10 @@
 .mainTitle {
   grid-area: name-dev;
 
-  font-family: 'Butler';
+  // font-family: 'Butler';
   font-size: min(4rem, 4vw);
+
+  line-height: 1.24;
 
   z-index: 9998;
 
@@ -42,7 +44,7 @@
       display: inline-block;
       position: absolute;
 
-      bottom: min(25px, 1.8vw);
+      bottom: min(12px, 1.5vw);
 
       z-index: -1;
 

@@ -11,7 +11,7 @@
 <style lang="scss" scoped>
 .rights {
   grid-area: rights;
-  // background-color: green;
+
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -28,7 +28,7 @@
   &__text {
     font-size: 0.8rem;
     font-family: 'Open Sans';
-    color: $primary-color;
+    color: $secondary-color;
     white-space: nowrap;
 
     @include md {
@@ -41,7 +41,7 @@
     height: 1px;
     margin: 7.5px 10px;
 
-    background-color: $primary-color;
+    background-color: $secondary-color;
 
     *.page-enter-from &,
     *.page-leave-to & {

@@ -2,7 +2,9 @@
   <div class="carouselMainImage">
     <div class="carouselMainImage__line-visit">
       <div class="carouselMainImage__line-visit--line"></div>
-      <h4 class="carouselMainImage__line-visit--text"><TextRevealAnimation text="Visit the site" /></h4>
+      <NuxtLink :to="link"
+        ><h4 class="carouselMainImage__line-visit--text"><TextRevealAnimation text="Visit the site" /></h4
+      ></NuxtLink>
     </div>
     <picture class="carouselMainImage__picture" ref="picture" :class="isAnimating ? 'animatingOnchange' : ''">
       <img :src="selectedImage" :alt="props.images[MainStore.state.sliderImageID].alt" />
@@ -16,6 +18,7 @@ import MainStore from '~~/stores/globalState';
 
 const props = defineProps({
   images: Array,
+  link: String,
 });
 
 const selectedImage = ref(props.images[MainStore.state.sliderImageID].src);
@@ -62,12 +65,20 @@ watch(
     align-items: center;
     margin-bottom: 10px;
 
+    cursor: pointer;
+
+    @include hover {
+      .carouselMainImage__line-visit--text {
+        animation-name: anim-link;
+      }
+    }
+
     &--line {
       flex-grow: 1;
       height: 1px;
       transform-origin: left;
 
-      background-color: $primary-color;
+      background-color: var(--theme-color);
 
       *.page-enter-from &,
       *.page-leave-to & {
@@ -84,7 +95,7 @@ watch(
       margin-left: 20px;
 
       text-transform: uppercase;
-      color: $primary-color;
+      color: var(--theme-color);
       letter-spacing: 1px;
       font-size: 0.9rem;
 
@@ -93,10 +104,6 @@ watch(
       animation-timing-function: ease;
       animation-duration: 0.5s;
       animation-fill-mode: both;
-
-      @include hover {
-        animation-name: anim-link;
-      }
     }
   }
 
@@ -196,7 +203,7 @@ watch(
 
 @keyframes anim-change-image {
   0% {
-    background-color: $primary-color;
+    background-color: var(--theme-color);
     transform-origin: left;
     transform: scaleX(0);
   }
@@ -209,7 +216,7 @@ watch(
     transform: scaleX(1);
   }
   100% {
-    background-color: $primary-color;
+    background-color: var(--theme-color);
     transform-origin: right;
     transform: scaleX(0);
   }

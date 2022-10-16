@@ -26,7 +26,7 @@
     '. projects projects projects . image image image image image image .'
     '. projects projects projects . image image image image image image .'
     '. . . . . slider-image slider-image slider-image slider-image slider-image slider-image .'
-    '. . rights rights . next-project next-project next-project next-project next-project next-project .';
+    '. rights rights . . next-project next-project next-project next-project next-project next-project .';
 
   height: 100vh;
 
@@ -46,7 +46,7 @@
       '. projects projects projects . image image image image image image .'
       '. projects projects projects . slider-image slider-image slider-image slider-image slider-image slider-image .'
       '. projects projects projects . . . . . . . .'
-      '. . rights rights . next-project next-project next-project next-project next-project next-project .';
+      '. rights rights . . next-project next-project next-project next-project next-project next-project .';
   }
 
   @include lg {
@@ -65,7 +65,7 @@
       '. projects projects projects . image image image image image image .'
       '. projects projects projects . slider-image slider-image slider-image slider-image slider-image slider-image .'
       '. projects projects projects . . . . . . . .'
-      '. . rights rights . next-project next-project next-project next-project next-project next-project .';
+      '. rights rights . . next-project next-project next-project next-project next-project next-project .';
 
     height: 100%;
   }

@@ -23,7 +23,7 @@ const props = defineProps({
     padding: 5px 15px;
     margin: 0 15px 15px 0;
 
-    border: 1px solid $primary-color;
+    border: 1px solid var(--theme-color);
 
     font-family: 'Open Sans';
     font-weight: 300;
