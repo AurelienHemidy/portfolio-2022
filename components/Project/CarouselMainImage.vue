@@ -152,11 +152,15 @@ watch(
       animation-fill-mode: both;
 
       *.page-enter-from &,
-      *.page-leave-to & {
+      *.page-leave-to &,
+      *.between-projects-enter-from &,
+      *.between-projects-leave-to & {
         transform: scaleX(1);
       }
 
-      *.page-enter-active & {
+      *.page-enter-active &,
+      *.between-projects-enter-active &,
+      *.between-projects-leave-active & {
         transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.1s;
       }
 
@@ -172,15 +176,19 @@ watch(
 
       transform: scale(1);
 
-      *.page-enter-from & {
+      *.page-enter-from &,
+      *.between-projects-enter-from & {
         transform: scale(1.5);
       }
-      *.page-leave-to & {
+      *.page-leave-to &,
+      *.between-projects-leave-to & {
         transform: scale(1.2);
       }
 
       *.page-leave-active &,
-      *.page-enter-active & {
+      *.page-enter-active &,
+      *.between-projects-enter-active &,
+      *.between-projects-leave-active & {
         transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
       }
     }

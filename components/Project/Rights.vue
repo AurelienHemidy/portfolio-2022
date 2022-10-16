@@ -14,7 +14,7 @@
 
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-start;
 
   padding-bottom: 10px;
 

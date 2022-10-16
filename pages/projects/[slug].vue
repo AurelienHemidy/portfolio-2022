@@ -19,22 +19,20 @@
       <ProjectCarouselMainImage :images="currentProject.images" :link="currentProject.link" />
       <ProjectCarouselSlider :images="currentProject.images" />
 
-      <div class="previous-project">
-        <NuxtLink :to="previousProjectLink"
-          ><p>{{ previousProject.title }}</p></NuxtLink
-        >
-      </div>
-      <div class="next-project">
-        <NuxtLink :to="nextProjectLink"
-          ><p>{{ nextProject.title }}</p></NuxtLink
-        >
+      <div class="nextPreviousProject">
+        <NuxtLink :to="previousProjectLink" class="link">
+          <p class="nextPreviousProject__text"><TextRevealAnimation text="previous project" :delay="0.5" /></p>
+        </NuxtLink>
+        <NuxtLink :to="nextProjectLink" class="link">
+          <p class="nextPreviousProject__text"><TextRevealAnimation text="next project" :delay="0.5" /></p>
+        </NuxtLink>
       </div>
 
       <ProjectCarouselSideSlider />
 
       <ProjectRights />
 
-      <BackgroundLines isProject />
+      <!-- <BackgroundLines isProject /> -->
     </ProjectGrid>
   </div>
 </template>
@@ -89,7 +87,7 @@ const scrollDirection = {
 const handleWheel = (event) => {
   console.log(scrollDirection[Math.sign(event.deltaY)]);
 
-  router.push(scrollDirection[Math.sign(event.deltaY)]);
+  // router.push(scrollDirection[Math.sign(event.deltaY)]);
 };
 
 useHead({
@@ -132,12 +130,50 @@ useHead({
   grid-area: projects;
 }
 
-.next-project {
-  background-color: red;
+.nextPreviousProject {
+  // background-color: rgba(48, 48, 48, 0.281);
+
   grid-area: next-project;
-}
-.previous-project {
-  background-color: blue;
-  grid-area: previous-project;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 12.5px;
+
+  &__text {
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: var(--theme-color);
+    text-transform: uppercase;
+
+    position: relative;
+
+    overflow: hidden;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -5%;
+      left: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: var(--theme-color);
+
+      transform-origin: left;
+      *.between-projects-enter-from &,
+      *.between-projects-leave-to & {
+        transform: scaleX(0);
+      }
+      *.between-projects-enter-active & {
+        transition: 0.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      }
+      *.between-projects-leave-active & {
+        transition: 0.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      }
+    }
+  }
 }
 </style>

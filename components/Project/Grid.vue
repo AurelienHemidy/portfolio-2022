@@ -30,6 +30,8 @@
 
   height: 100vh;
 
+  overflow: hidden;
+
   @include xl {
     grid-template-rows: 0.7fr 1.3fr 1fr 0.5fr 1.1fr 1.1fr 0.5fr 1.2fr 1.1fr 0.5fr 1.5fr 1.4fr 1.4fr 0.7fr;
     grid-template-areas:
@@ -66,8 +68,6 @@
       '. projects projects projects . slider-image slider-image slider-image slider-image slider-image slider-image .'
       '. projects projects projects . . . . . . . .'
       '. rights rights . . next-project next-project next-project next-project next-project next-project .';
-
-    height: 100%;
   }
 
   @include md {

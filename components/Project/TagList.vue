@@ -25,6 +25,8 @@ const props = defineProps({
 
     border: 1px solid var(--theme-color);
 
+    // background-color: var(--theme-color);
+
     font-family: 'Fira Sans', sans-serif;
     font-weight: 200;
 
