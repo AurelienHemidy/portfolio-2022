@@ -16,8 +16,11 @@ definePageMeta({
     mode: 'out-in',
     appear: true,
     duration: 1200,
-    onLeave: () => console.log('leave index'),
-    onEnter: () => console.log('enter index'),
+    // onLeave: () => console.log('leave index'),
+    // onEnter: () => console.log('enter index'),
+  },
+  middleware(to, from) {
+    from.meta.pageTransition.name = 'page';
   },
 });
 

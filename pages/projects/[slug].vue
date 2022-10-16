@@ -1,5 +1,5 @@
 <template>
-  <div :style="`--theme-color: ${currentProject.themeColor}`">
+  <div :style="`--theme-color: ${currentProject.themeColor}`" @wheel="handleWheel">
     <ProjectGrid>
       <ProjectTopLeftButton />
 
@@ -48,13 +48,17 @@ definePageMeta({
     mode: 'out-in',
     duration: 1200,
     onLeave: () => (MainStore.state.sliderImageID = 0),
-    onEnter: () => console.log(`enter project`),
+    // onEnter: () => console.log(`enter project`),
+  },
+  middleware(to, from) {
+    if (to.name === 'projects-slug' && from.name === 'projects-slug')
+      from.meta.pageTransition.name = 'between-projects';
   },
 });
 
 const route = useRoute();
+const router = useRouter();
 
-// Current Project
 const { data: currentProject } = await useAsyncData(route.params.slug, () =>
   queryContent('/project', route.params.slug).findOne()
 );
@@ -70,18 +74,23 @@ const nextIndex = (currentProject.value.id + 1) % allProjects.value.length;
 const previousProject = allProjects.value[previousIndex];
 const nextProject = allProjects.value[nextIndex];
 
-console.log(previousIndex);
-console.log(nextIndex);
-console.log(`/projects/${previousProject.slug}`);
-console.log(`/projects/${nextProject.slug}`);
-// console.log(allProjects.value[previousIndex].slug, allProjects.value[4]);
-
 const previousProjectLink = `/projects/${previousProject.slug}`;
 const nextProjectLink = `/projects/${nextProject.slug}`;
 
 const titleSEO = ref(`Aurélien Hémidy | ${currentProject.value.title}`);
 const descriptionSEO = ref(currentProject.value.description);
 const urlSEO = ref(`aurelien.hemidy.fr/projects${currentProject.value.link}`);
+
+const scrollDirection = {
+  1: previousProjectLink,
+  '-1': nextProjectLink,
+};
+
+const handleWheel = (event) => {
+  console.log(scrollDirection[Math.sign(event.deltaY)]);
+
+  router.push(scrollDirection[Math.sign(event.deltaY)]);
+};
 
 useHead({
   title: titleSEO.value,
@@ -124,9 +133,11 @@ useHead({
 }
 
 .next-project {
+  background-color: red;
   grid-area: next-project;
 }
 .previous-project {
+  background-color: blue;
   grid-area: previous-project;
 }
 </style>
