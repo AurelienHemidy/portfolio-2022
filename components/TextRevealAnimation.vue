@@ -27,12 +27,16 @@ const props = defineProps({
     transition-property: transform;
 
     *.page-enter-from &,
-    *.page-leave-to & {
+    *.page-leave-to &,
+    *.between-projects-enter-from &,
+    *.between-projects-leave-to & {
       transform: translateY(400%);
     }
 
     *.page-leave-active &,
-    *.page-enter-active & {
+    *.page-enter-active &,
+    *.between-projects-leave-active &,
+    *.between-projects-enter-active & {
       transition: 2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) var(--delay);
     }
   }

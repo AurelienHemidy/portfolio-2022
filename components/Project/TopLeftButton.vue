@@ -48,13 +48,17 @@ const backToMainPage = () => {
     cursor: pointer;
 
     *.page-enter-from &,
-    *.page-leave-to & {
+    *.page-leave-to &,
+    *.between-projects-enter-from &,
+    *.between-projects-leave-to & {
       transform: translateY(100%);
       opacity: 0;
     }
 
     *.page-enter-active &,
-    *.page-leave-active & {
+    *.page-leave-active &,
+    *.between-projects-enter-active &,
+    *.between-projects-leave-active & {
       transition: 1.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
     }
 

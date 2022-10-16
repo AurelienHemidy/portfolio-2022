@@ -81,12 +81,16 @@ watch(
       background-color: var(--theme-color);
 
       *.page-enter-from &,
-      *.page-leave-to & {
+      *.page-leave-to &,
+      *.between-projects-enter-from &,
+      *.between-projects-leave-to & {
         flex-grow: 0;
       }
 
       *.page-leave-active &,
-      *.page-enter-active & {
+      *.page-enter-active &,
+      *.between-projects-enter-active &,
+      *.between-projects-leave-active & {
         transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
       }
     }
