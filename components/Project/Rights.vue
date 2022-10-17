@@ -20,15 +20,13 @@
   align-items: flex-end;
   justify-content: flex-start;
 
-  padding-bottom: 10px;
-
   writing-mode: vertical-rl;
   text-orientation: mixed;
 
   // overflow: hidden;
 
   @include md {
-    margin-top: 20px;
+    left: -25px;
   }
 
   &__name,

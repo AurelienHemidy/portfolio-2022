@@ -29,6 +29,7 @@
     '. rights rights . . next-project next-project next-project next-project next-project next-project .';
 
   height: 100vh;
+  position: relative;
 
   // overflow: hidden;
 
@@ -73,6 +74,8 @@
   @include md {
     display: flex;
     flex-direction: column;
+
+    height: 100%;
 
     margin: 20px calc(100% / 12);
   }

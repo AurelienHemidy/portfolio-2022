@@ -151,6 +151,10 @@ useHead({
 
   padding: 0 12.5px;
 
+  @include md {
+    margin-top: 20px;
+  }
+
   &__text {
     font-size: 0.8rem;
     font-weight: 900;
