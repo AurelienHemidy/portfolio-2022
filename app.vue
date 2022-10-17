@@ -15,18 +15,6 @@ useHead({
   title: 'Aurélien Hémidy | Web Developer',
   meta: [
     {
-      name: 'charset',
-      content: 'utf-8',
-    },
-    {
-      name: 'viewport',
-      content: 'width=device-width, initial-scale=1',
-    },
-    {
-      name: 'theme-color',
-      content: '#1F1D1A',
-    },
-    {
       name: 'description',
       content:
         "Hi ! I'm a front-end web developer freshly graduated from Gobelins, l'Ecole de l'Image with a Master Degree in Innovative Interaction's Design and Management.",

@@ -3,7 +3,7 @@
     <h1 class="projectList__title"><TextRevealAnimation text="Work"></TextRevealAnimation></h1>
 
     <ProjectItem
-      :number="i + 1"
+      :index="i + 1"
       :isFirst="i === 0"
       v-for="(project, i) in allProjects"
       :delay="i"

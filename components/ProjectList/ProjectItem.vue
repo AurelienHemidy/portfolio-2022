@@ -2,7 +2,7 @@
   <NuxtLink :to="link" class="link linkProjects">
     <div class="projectListItem" data-scroll data-scroll-offset="70" :style="`--delay: ${0.1 * props.delay}s`">
       <div class="projectListItem__index">
-        <h3 class="projectListItem__index--text" ref="number">\ 0{{ props.number }}</h3>
+        <h3 class="projectListItem__index--text" ref="number">\ 0{{ props.index }}</h3>
       </div>
 
       <div class="projectListItem__title-context">
@@ -40,7 +40,7 @@
 <script setup>
 const props = defineProps({
   isFirst: Boolean,
-  number: Number,
+  index: Number,
   title: String,
   context: String,
   date: Number,

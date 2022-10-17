@@ -122,6 +122,17 @@ useHead({
       content: descriptionSEO.value,
     },
   ],
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: 'favicon/favicon.ico',
+    },
+    {
+      rel: 'apple-touche-icon',
+      href: 'favicon/favicon.ico',
+    },
+  ],
 });
 </script>
 
