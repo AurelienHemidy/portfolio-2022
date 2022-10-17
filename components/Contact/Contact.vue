@@ -2,19 +2,27 @@
   <div class="contactContainer">
     <h1 class="contactContainer__title"><TextRevealAnimation text="Contact"></TextRevealAnimation></h1>
 
-    <h4 class="contactContainer__email"><TextRevealAnimation text="aurelien@hemidy.fr"></TextRevealAnimation></h4>
+    <NuxtLink to="mailto:aurelien@hemidy.fr" class="link">
+      <h4 class="contactContainer__email"><TextRevealAnimation text="aurelien@hemidy.fr"></TextRevealAnimation></h4>
+    </NuxtLink>
 
     <h6 class="contactContainer__social"><TextRevealAnimation text="Social"></TextRevealAnimation></h6>
 
     <ul class="contactContainer__socialList">
       <li class="contactContainer__socialList--item">
-        <TextRevealAnimation text="Instagram" :offset="20"></TextRevealAnimation>
+        <NuxtLink to="https://www.instagram.com/aurelien_hmdy/" class="link">
+          <TextRevealAnimation text="Instagram" :offset="20"></TextRevealAnimation>
+        </NuxtLink>
       </li>
       <li class="contactContainer__socialList--item">
-        <TextRevealAnimation text="Linkedin" :offset="20"></TextRevealAnimation>
+        <NuxtLink to="https://www.linkedin.com/in/aurelien-h%C3%A9midy-89210817a/" class="link">
+          <TextRevealAnimation text="Linkedin" :offset="20"></TextRevealAnimation>
+        </NuxtLink>
       </li>
       <li class="contactContainer__socialList--item">
-        <TextRevealAnimation text="Github" :offset="20"></TextRevealAnimation>
+        <NuxtLink to="https://github.com/AurelienHemidy" class="link">
+          <TextRevealAnimation text="Github" :offset="20"></TextRevealAnimation>
+        </NuxtLink>
       </li>
     </ul>
   </div>
@@ -44,6 +52,24 @@
     font-size: min(2rem, 5vw);
 
     margin-bottom: 50px;
+
+    display: inline-block;
+    position: relative;
+
+    overflow: hidden;
+
+    &::after {
+      content: '';
+
+      width: 100%;
+      height: 2px;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      background-color: $secondary-color;
+    }
   }
 
   &__social {
