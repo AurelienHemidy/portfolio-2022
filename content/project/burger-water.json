@@ -12,32 +12,32 @@
   "images": [
     {
       "src": "/projects/burger-water/burger-water-landing.png",
-      "alt": "",
+      "alt": "Burger Water landing page",
       "color": "#1D0259"
     },
     {
       "src": "/projects/burger-water/burger-water-choice.png",
-      "alt": "",
+      "alt": "Burger Water choice page",
       "color": "#1D0259"
     },
     {
       "src": "/projects/burger-water/burger-water-burger-build.png",
-      "alt": "",
+      "alt": "Burger Water burger composition page",
       "color": "#1D0259"
     },
     {
       "src": "/projects/burger-water/burger-water-burger-building.png",
-      "alt": "",
+      "alt": "Burger Water burger composition finished",
       "color": "#1D0259"
     },
     {
       "src": "/projects/burger-water/burger-water-unwrap.png",
-      "alt": "",
+      "alt": "Burger Water burger unwrap to see aliments",
       "color": "#1D0259"
     },
     {
       "src": "/projects/burger-water/burger-water-wrap-final.png",
-      "alt": "",
+      "alt": "Burger Water water values",
       "color": "#1D0259"
     }
   ],

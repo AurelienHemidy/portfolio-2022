@@ -12,22 +12,22 @@
   "images": [
     {
       "src": "/projects/ad-portfolio/ad-portfolio-landing.png",
-      "alt": "",
+      "alt": "Alexandra Douard's Portfolio landing page",
       "color": "#1D0259"
     },
     {
       "src": "/projects/ad-portfolio/ad-portfolio-main-content.png",
-      "alt": "",
+      "alt": "Alexandra Douard's Portfolio main content",
       "color": "#1D0259"
     },
     {
       "src": "/projects/ad-portfolio/ad-portfolio-project.png",
-      "alt": "",
+      "alt": "Alexandra Douard's Portfolio project page",
       "color": "#1D0259"
     },
     {
       "src": "/projects/ad-portfolio/ad-portfolio-projects.png",
-      "alt": "",
+      "alt": "Alexandra Douard's Portfolio project list",
       "color": "#1D0259"
     }
   ],

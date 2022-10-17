@@ -12,22 +12,22 @@
   "images": [
     {
       "src": "/projects/regards-dartisans/regards-dartisans-menu.jpg",
-      "alt": "",
+      "alt": "Regards d'artisans menu page",
       "color": "#1D0259"
     },
     {
       "src": "/projects/regards-dartisans/regards-dartisans-atelier.jpg",
-      "alt": "",
+      "alt": "Regards d'artisans atelier in 3D",
       "color": "#1D0259"
     },
     {
       "src": "/projects/regards-dartisans/regards-dartisans-choix-couleur.jpg",
-      "alt": "",
+      "alt": "Regards d'artisans interaction: choice of the colors",
       "color": "#1D0259"
     },
     {
       "src": "/projects/regards-dartisans/regards-dartisans-instagram.jpg",
-      "alt": "",
+      "alt": "Regards d'artisans Instagram communication page",
       "color": "#1D0259"
     }
   ],

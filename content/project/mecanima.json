@@ -12,32 +12,32 @@
   "images": [
     {
       "src": "/projects/mecanima/mecanima.png",
-      "alt": "",
+      "alt": "Mecanima logo",
       "color": "#1D0259"
     },
     {
       "src": "/projects/mecanima/mecanima-phone.jpg",
-      "alt": "",
+      "alt": "Mecanima 4 phones reprensenting players",
       "color": "#1D0259"
     },
     {
       "src": "/projects/mecanima/mecanima-beginning.png",
-      "alt": "",
+      "alt": "Mecanima lobby with players and scenario explained",
       "color": "#1D0259"
     },
     {
       "src": "/projects/mecanima/mecanima-question.png",
-      "alt": "",
+      "alt": "Mecanima 1st mission's first question",
       "color": "#1D0259"
     },
     {
       "src": "/projects/mecanima/mecanima-mission.png",
-      "alt": "",
+      "alt": "Mecanima 1st mission's tools",
       "color": "#1D0259"
     },
     {
       "src": "/projects/mecanima/mecanima-final-question.png",
-      "alt": "",
+      "alt": "Mecanima final question to finish the game representing Pascal machine: the Pascaline",
       "color": "#1D0259"
     }
   ],
