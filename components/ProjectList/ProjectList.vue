@@ -11,6 +11,7 @@
       :context="project.context"
       :date="project.date"
       :slug="project.slug"
+      :placeholder="project.placeholder"
     />
   </div>
 </template>

@@ -9,7 +9,7 @@
         <ProjectParagraphTitle content="the project" />
         <ProjectParagraph :content="currentProject.description" />
 
-        <ProjectParagraphTitle content="why ?" />
+        <ProjectParagraphTitle content="Context" />
         <ProjectParagraph :content="currentProject.why" />
 
         <ProjectParagraphTitle content="tech stack" />
@@ -28,7 +28,7 @@
         </NuxtLink>
       </div>
 
-      <ProjectCarouselSideSlider />
+      <ProjectCarouselSideSlider :length="currentProject.images.length" />
 
       <ProjectRights />
 
@@ -87,7 +87,7 @@ const scrollDirection = {
 const handleWheel = (event) => {
   console.log(scrollDirection[Math.sign(event.deltaY)]);
 
-  // router.push(scrollDirection[Math.sign(event.deltaY)]);
+  router.push(scrollDirection[Math.sign(event.deltaY)]);
 };
 
 useHead({

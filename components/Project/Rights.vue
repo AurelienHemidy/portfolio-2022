@@ -47,7 +47,8 @@
     *.page-leave-to &,
     *.between-projects-enter-from &,
     *.between-projects-leave-to & {
-      transform: translateY(100%);
+      transform: translateY(10px);
+      opacity: 0;
     }
 
     *.page-leave-active &,

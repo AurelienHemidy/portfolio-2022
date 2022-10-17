@@ -16,7 +16,7 @@
 
       <div class="projectListItem__image">
         <picture class="projectListItem__image--picture">
-          <img src="~/assets/background/forgotten-skies-image.png" alt="forgotten skies img" ref="image" />
+          <img :src="placeholder" alt="forgotten skies img" ref="image" />
         </picture>
       </div>
 
@@ -45,6 +45,7 @@ const props = defineProps({
   context: String,
   date: Number,
   slug: String,
+  placeholder: String,
   delay: Number,
 });
 

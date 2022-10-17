@@ -3,7 +3,7 @@
     <div class="carouselSideSlider__mainLine">
       <div
         class="carouselSideSlider__mainLine--slide"
-        :style="`transform: translateY(${100 * MainStore.state.sliderImageID}%)`"
+        :style="`transform: translateY(${100 * MainStore.state.sliderImageID}%); --length: ${length}`"
         ref="slide"
       ></div>
     </div>
@@ -12,6 +12,10 @@
 
 <script setup>
 import MainStore from '~/stores/globalState';
+
+const props = defineProps({
+  length: Number,
+});
 </script>
 
 <style lang="scss" scoped>
@@ -44,7 +48,7 @@ import MainStore from '~/stores/globalState';
     }
 
     &--slide {
-      height: calc(100% / 6);
+      height: calc(100% / var(--length));
       width: 3px;
 
       position: relative;
