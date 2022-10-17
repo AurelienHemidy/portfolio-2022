@@ -1,6 +1,13 @@
 <template>
   <div class="imageLanding">
-    <picture class="imageLanding__picture" ref="image" id="image" @mouseenter="onHover" @mouseleave="onHover">
+    <picture
+      class="imageLanding__picture"
+      ref="image"
+      id="image"
+      @mouseenter="onHover"
+      @mouseleave="onHover"
+      @click="handleClick"
+    >
       <img
         class="imageLanding__picture--image"
         src="~/assets/background/image-of-me.png"
@@ -11,9 +18,13 @@
 </template>
 
 <script setup>
+import MainStore from '~~/stores/globalState';
+
 const props = defineProps({
   onHover: Function,
 });
+
+const handleClick = () => MainStore.state.locomotiveScroll.scrollTo(document.getElementById('projects'));
 </script>
 
 <style lang="scss" scoped>

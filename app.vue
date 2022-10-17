@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-scroll-container>
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -11,6 +11,35 @@
 </template>
 
 <script setup>
+import MainStore from './stores/globalState';
+
+const { $locomotiveScroll } = useNuxtApp();
+let scroll;
+
+onMounted(() => {
+  scroll = new $locomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    multiplier: 0.8,
+  });
+
+  MainStore.state.locomotiveScroll = scroll;
+
+  const resizeObserver = new ResizeObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (scroll) {
+        scroll.update();
+      }
+    });
+  });
+
+  resizeObserver.observe(document.querySelector('[data-scroll-container]'));
+});
+
+onUnmounted(() => {
+  scroll.destroy();
+});
+
 useHead({
   title: 'Aurélien Hémidy | Web Developer',
   meta: [

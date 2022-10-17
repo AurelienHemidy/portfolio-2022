@@ -1,6 +1,6 @@
 <template>
   <div class="bottomLeftButton">
-    <button class="bottomLeftButton__button">
+    <button class="bottomLeftButton__button" @click="handleClick">
       <img
         src="~/assets/background/arrow-icon.svg"
         alt="arrow icon"
@@ -11,7 +11,11 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import MainStore from '~~/stores/globalState';
+
+const handleClick = () => MainStore.state.locomotiveScroll.scrollTo(document.getElementById('projects'));
+</script>
 
 <style lang="scss" scoped>
 .bottomLeftButton {

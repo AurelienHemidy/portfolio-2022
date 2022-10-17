@@ -1,5 +1,5 @@
 <template>
-  <div data-scroll-container>
+  <div>
     <Landing />
     <ProjectList />
     <Contact />
@@ -8,28 +8,16 @@
 </template>
 
 <script setup>
-const { $locomotiveScroll } = useNuxtApp();
-
 definePageMeta({
   pageTransition: {
     name: 'page',
     mode: 'out-in',
     appear: true,
     duration: 1200,
-    // onLeave: () => console.log('leave index'),
-    // onEnter: () => console.log('enter index'),
   },
   middleware(to, from) {
     from.meta.pageTransition.name = 'page';
   },
-});
-
-onMounted(() => {
-  // const scroll = new $locomotiveScroll({
-  //   el: document.querySelector('[data-scroll-container]'),
-  //   smooth: true,
-  //   multiplier: 0.8,
-  // });
 });
 </script>
 
