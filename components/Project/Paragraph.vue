@@ -1,6 +1,6 @@
 <template>
   <p class="paragraph">
-    <TextRevealAnimation :text="content" />
+    <span class="textRevealAnimation">{{ content }}</span>
   </p>
 </template>
 

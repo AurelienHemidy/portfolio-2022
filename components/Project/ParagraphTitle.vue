@@ -1,6 +1,6 @@
 <template>
   <h5 class="paragraphTitle">
-    <TextRevealAnimation :text="content" />
+    <span class="textRevealAnimation">{{ content }}</span>
   </h5>
 </template>
 

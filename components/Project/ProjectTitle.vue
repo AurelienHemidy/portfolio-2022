@@ -1,8 +1,14 @@
 <template>
   <div class="projectTitle">
-    <h1 class="projectTitle__title"><TextRevealAnimation :text="title"></TextRevealAnimation></h1>
-    <h5 class="projectTitle__context"><TextRevealAnimation :text="context"></TextRevealAnimation></h5>
-    <p class="projectTitle__date"><TextRevealAnimation :text="date.toString()"></TextRevealAnimation></p>
+    <h1 class="projectTitle__title">
+      <span class="textRevealAnimation">{{ title }}</span>
+    </h1>
+    <h5 class="projectTitle__context">
+      <span class="textRevealAnimation">{{ context }}</span>
+    </h5>
+    <p class="projectTitle__date">
+      <span class="textRevealAnimation">{{ date }}</span>
+    </p>
   </div>
 </template>
 
@@ -26,6 +32,8 @@ const props = defineProps({
     font-size: 3rem;
     white-space: nowrap;
 
+    overflow: hidden;
+
     @include md {
       font-size: 1.6rem;
     }
@@ -38,6 +46,8 @@ const props = defineProps({
     margin-bottom: 10px;
     white-space: nowrap;
 
+    overflow: hidden;
+
     @include md {
       font-size: 1rem;
     }
@@ -46,6 +56,8 @@ const props = defineProps({
   &__date {
     font-size: 1.2rem;
     font-weight: 900;
+
+    overflow: hidden;
   }
 
   @include md {

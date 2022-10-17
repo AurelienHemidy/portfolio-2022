@@ -1,8 +1,12 @@
 <template>
   <div class="rights">
-    <p class="rights__name"><TextRevealAnimation text="© Aurélien Hémidy" /></p>
+    <p class="rights__name">
+      <span class="textRevealAnimation">© Aurélien Hémidy</span>
+    </p>
     <div class="rights__separator"></div>
-    <p class="rights__text"><TextRevealAnimation text="All rights reserved" /></p>
+    <p class="rights__text">
+      <span class="textRevealAnimation">All rights reserved</span>
+    </p>
   </div>
 </template>
 
@@ -37,6 +41,8 @@
     color: $secondary-color;
     white-space: nowrap;
 
+    overflow: hidden;
+
     @include md {
       font-size: 0.6rem;
     }
@@ -50,12 +56,13 @@
     background-color: $secondary-color;
     opacity: 0.5;
 
+    transform-origin: bottom;
+
     *.page-enter-from &,
     *.page-leave-to &,
     *.between-projects-enter-from &,
     *.between-projects-leave-to & {
-      transform: translateY(10px);
-      opacity: 0;
+      transform: scaleY(0);
     }
 
     *.page-leave-active &,

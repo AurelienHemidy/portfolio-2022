@@ -21,10 +21,10 @@
 
       <div class="nextPreviousProject">
         <NuxtLink :to="previousProjectLink" class="link">
-          <p class="nextPreviousProject__text"><TextRevealAnimation text="previous project" :delay="0.5" /></p>
+          <p class="nextPreviousProject__text"><span class="textRevealAnimation">previous project</span></p>
         </NuxtLink>
         <NuxtLink :to="nextProjectLink" class="link">
-          <p class="nextPreviousProject__text"><TextRevealAnimation text="next project" :delay="0.5" /></p>
+          <p class="nextPreviousProject__text"><span class="textRevealAnimation">next project</span></p>
         </NuxtLink>
       </div>
 
@@ -178,10 +178,15 @@ useHead({
       background-color: var(--theme-color);
 
       transform-origin: left;
+      *.page-enter-from &,
+      *.page-leave-to &,
       *.between-projects-enter-from &,
       *.between-projects-leave-to & {
         transform: scaleX(0);
       }
+
+      *.page-leave-active &,
+      *.page-enter-active &,
       *.between-projects-enter-active & {
         transition: 0.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
       }
