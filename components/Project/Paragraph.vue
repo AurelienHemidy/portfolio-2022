@@ -14,8 +14,8 @@ const props = defineProps({
 .paragraph {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 300;
-  font-size: 0.9rem;
-  margin-bottom: 30px;
+  font-size: 0.85rem;
+  margin-bottom: 2vh;
 
   overflow: hidden;
 

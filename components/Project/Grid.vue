@@ -30,7 +30,7 @@
 
   height: 100vh;
 
-  overflow: hidden;
+  // overflow: hidden;
 
   @include xl {
     grid-template-rows: 0.7fr 1.3fr 1fr 0.5fr 1.1fr 1.1fr 0.5fr 1.2fr 1.1fr 0.5fr 1.5fr 1.4fr 1.4fr 0.7fr;

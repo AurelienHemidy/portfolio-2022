@@ -10,7 +10,11 @@
 
 <style lang="scss" scoped>
 .rights {
-  grid-area: rights;
+  // grid-area: rights;
+
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
 
   display: flex;
   align-items: flex-end;
@@ -18,7 +22,10 @@
 
   padding-bottom: 10px;
 
-  overflow: hidden;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
+  // overflow: hidden;
 
   @include md {
     margin-top: 20px;
@@ -26,8 +33,9 @@
 
   &__name,
   &__text {
-    font-size: 0.8rem;
-    font-family: 'Open Sans';
+    font-size: 0.7rem;
+    font-family: 'Fira Sans';
+    opacity: 0.5;
     color: $secondary-color;
     white-space: nowrap;
 
@@ -37,11 +45,12 @@
   }
 
   &__separator {
-    width: 15px;
-    height: 1px;
-    margin: 7.5px 10px;
+    width: 1px;
+    height: 15px;
+    margin: 7.5px 7.5px;
 
     background-color: $secondary-color;
+    opacity: 0.5;
 
     *.page-enter-from &,
     *.page-leave-to &,

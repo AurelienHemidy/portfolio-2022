@@ -12,21 +12,16 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .paragraphTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
 
-  margin-bottom: 20px;
+  margin-bottom: 3vh;
 
   overflow: hidden;
 
   @include xl {
     font-size: 1.2rem;
     margin-bottom: 10px;
-  }
-
-  @include md {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
   }
 }
 </style>

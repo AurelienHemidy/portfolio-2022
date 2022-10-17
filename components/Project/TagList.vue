@@ -21,13 +21,14 @@ const props = defineProps({
 
   &__item {
     padding: 5px 15px;
-    margin: 0 15px 15px 0;
+    margin: 0 1.5vh 1.5vh 0;
 
     border: 1px solid var(--theme-color);
 
     // background-color: var(--theme-color);
 
     font-family: 'Fira Sans', sans-serif;
+    font-size: 0.8rem;
     font-weight: 200;
 
     @include xl {
@@ -52,7 +53,7 @@ const props = defineProps({
   }
 
   @include md {
-    margin-bottom: 20px;
+    margin-bottom: 1vh;
   }
 }
 </style>
