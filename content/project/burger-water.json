@@ -2,44 +2,44 @@
   "id": 4,
   "title": "Burger Water",
   "context": "Website",
-  "description": "Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone. Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the ultimate goal for me.",
-  "why": "Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone. Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the ultimate goal for me.",
+  "description": "Did you ever asked this question in your mind, how much water did it cost to have this burger in my plate ? Burger Water is a website designed to answer that question ! Threw a little experience where you create your own burger, you'll eventually find out how much water it needed !",
+  "why": "Built during a week period on my Bachelor's degree at Gobelins, l'Ecole de l'Image, from conception to coding, with a designer: Léa Morand. At first the experience was built with a canvas and a library to move ingredients. However, after a bit of trouvle with performance, I chose to use CSS only and translate everything on the page.",
   "date": 2019,
   "themeColor": "#91DEE6",
   "link": "https://burger-water.netlify.app/",
   "slug": "burger-water",
+  "placeholder": "/projects/burger-water/burger-water-choice.png",
   "images": [
     {
-      "src": "/projects/forgotten-skies-image.png",
+      "src": "/projects/burger-water/burger-water-landing.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/regards-dartisans-menu.jpg",
+      "src": "/projects/burger-water/burger-water-choice.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/04_DECOUPE_TRACE_OUTILS.jpg",
+      "src": "/projects/burger-water/burger-water-burger-build.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/03_ATELIER_ETAPE_1.jpg",
+      "src": "/projects/burger-water/burger-water-burger-building.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/03_ATELIER_ETAPE_2.jpg",
+      "src": "/projects/burger-water/burger-water-unwrap.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/03_ATELIER_ETAPE_3.jpg",
+      "src": "/projects/burger-water/burger-water-wrap-final.png",
       "alt": "",
       "color": "#1D0259"
     }
   ],
-  "techStack": ["HTML", "CSS", "Javascript"],
-  "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
+  "techStack": ["HTML", "CSS", "Javascript"]
 }

@@ -2,44 +2,34 @@
   "id": 2,
   "title": "A.D's Portfolio",
   "context": "Website",
-  "description": "Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone. Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the ultimate goal for me.",
-  "why": "Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone. Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the ultimate goal for me.",
+  "description": "Alexandra Douard is a student in communication, based in Paris. I worked with her to build her brand new portfolio showcasing her work.",
+  "why": "Built in 2020, it's my first experience on a real project with ReactJS and Redux. It was also the first time for me to work with a real client and build a website for someone. We first discussed the design and content to finally create animations. There's no back-end, I used an internal JSON file with the content of each project she worked on.",
   "date": 2020,
   "themeColor": "#ddc354",
   "link": "https://alexandradouard.fr/",
   "slug": "ad-portfolio",
+  "placeholder": "/projects/ad-portfolio/ad-portfolio-landing.png",
   "images": [
     {
-      "src": "/projects/forgotten-skies-image.png",
+      "src": "/projects/ad-portfolio/ad-portfolio-landing.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/regards-dartisans-menu.jpg",
+      "src": "/projects/ad-portfolio/ad-portfolio-main-content.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/03_ATELIER_ETAPE_3.jpg",
+      "src": "/projects/ad-portfolio/ad-portfolio-project.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/04_DECOUPE_TRACE_OUTILS.jpg",
-      "alt": "",
-      "color": "#1D0259"
-    },
-    {
-      "src": "/projects/03_ATELIER_ETAPE_1.jpg",
-      "alt": "",
-      "color": "#1D0259"
-    },
-    {
-      "src": "/projects/03_ATELIER_ETAPE_2.jpg",
+      "src": "/projects/ad-portfolio/ad-portfolio-projects.png",
       "alt": "",
       "color": "#1D0259"
     }
   ],
-  "techStack": ["ReactJS", "SCSS", "Javascript"],
-  "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
+  "techStack": ["ReactJS", "SCSS", "Javascript"]
 }

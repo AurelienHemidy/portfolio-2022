@@ -2,44 +2,44 @@
   "id": 0,
   "title": "Forgotten Skies",
   "context": "Immersive Website",
-  "description": "Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone. Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the ultimate goal for me.",
-  "why": "Telling stories threw web experiences is the ultimate goal for me. And As I will do it, it was not alone. Telling stories threw web experiences is the ultimate goal for me. Telling stories threw web experiences is the ultimate goal for me.",
+  "description": "Whenever humans questions their past or future, they turn to the bewitching infinity of the sky, seeking for answers. In the stars, each civilization found meaning for the way of the world and their place in it, shared in the shape of myths and legends. Forgotten skies is an immersive web experience, offering you to dive into the past and discover a first approach to archaeoastronomy! Sail threw the stars and learn about ancient civilization's beliefs about the sky.",
+  "why": "Built during a six month period at Gobelins, l'Ecole de l'Image, from conception to coding, with a team of 5 people: 2 other developers: Juliette Sage--Aubriot and Léon Baudouin and 2 designers: Alexandre Gomez-Pardo and Ronan Champigny.",
   "date": 2022,
-  "themeColor": "#4c25d5",
+  "themeColor": "#562bf1",
   "link": "https://forgotten-skies.leonbaudouin.fr/",
   "slug": "forgotten-skies",
+  "placeholder": "/projects/forgotten-skies/forgotten-skies-image.png",
   "images": [
     {
-      "src": "/projects/regards-dartisans-menu.jpg",
+      "src": "/projects/forgotten-skies/forgotten-skies-menu.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/forgotten-skies-image.png",
+      "src": "/projects/forgotten-skies/forgotten-skies-sail.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/04_DECOUPE_TRACE_OUTILS.jpg",
+      "src": "/projects/forgotten-skies/forgotten-skies-sah.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/03_ATELIER_ETAPE_1.jpg",
+      "src": "/projects/forgotten-skies/forgotten-skies-ra.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/03_ATELIER_ETAPE_2.jpg",
+      "src": "/projects/forgotten-skies/forgotten-skies-clouds.png",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/03_ATELIER_ETAPE_3.jpg",
+      "src": "/projects/forgotten-skies/forgotten-skies-roue.png",
       "alt": "",
       "color": "#1D0259"
     }
   ],
-  "techStack": ["NuxtJS", "SCSS", "TypeScript", "ThreeJS"],
-  "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
+  "techStack": ["NuxtJS", "SCSS", "TypeScript", "ThreeJS"]
 }

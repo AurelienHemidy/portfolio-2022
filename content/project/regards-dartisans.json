@@ -3,43 +3,33 @@
   "title": "Regards d'artisans",
   "slug": "regards-dartisans",
   "context": "Immersive Website",
-  "description": "Web experience.",
-  "why": "Telling stories threw web experiences is the ultimate goal for me.",
+  "description": "Regards d'artisans invites you to slip into the skin of an apprentice craftsman. The experience takes you to the side of a craftsman, in the intimate setting of a workshop, place of sharing his know-how. You will be guided in your initiation to the profession by the voice of a passionate workshop master.",
+  "why": "Built during a six month period at Gobelins, l'Ecole de l'Image, from conception to coding, with a team of 5 people:  1 other developer: Juliette Sage--Aubriot and 2 designers: Eloîse Luna, Vincent Calas and Chloélia Breton.",
   "themeColor": "#94fedf",
   "link": "https://artisanat-gobelins.vercel.app/",
   "date": 2021,
+  "placeholder": "/projects/regards-dartisans/regards-dartisans-menu.jpg",
   "images": [
     {
-      "src": "/projects/forgotten-skies-image.png",
+      "src": "/projects/regards-dartisans/regards-dartisans-menu.jpg",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/regards-dartisans-menu.jpg",
+      "src": "/projects/regards-dartisans/regards-dartisans-atelier.jpg",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/04_DECOUPE_TRACE_OUTILS.jpg",
+      "src": "/projects/regards-dartisans/regards-dartisans-choix-couleur.jpg",
       "alt": "",
       "color": "#1D0259"
     },
     {
-      "src": "/projects/03_ATELIER_ETAPE_1.jpg",
-      "alt": "",
-      "color": "#1D0259"
-    },
-    {
-      "src": "/projects/03_ATELIER_ETAPE_2.jpg",
-      "alt": "",
-      "color": "#1D0259"
-    },
-    {
-      "src": "/projects/03_ATELIER_ETAPE_3.jpg",
+      "src": "/projects/regards-dartisans/regards-dartisans-instagram.jpg",
       "alt": "",
       "color": "#1D0259"
     }
   ],
-  "techStack": ["NextJS", "SCSS", "Javascript", "ThreeJS"],
-  "text": "Please create ~/components/content and restart the Nuxt server to use components in Markdown"
+  "techStack": ["NextJS", "SCSS", "Javascript", "ThreeJS"]
 }
