@@ -54,10 +54,14 @@ const changeImage = (sliderImageID) => {
 const handleTouchStart = (e) => {
   e.preventDefault();
 
+  if (MainStore.state.isImageChanging) return;
+
   toucheStartPositionX.value = e.changedTouches[0].clientX;
 };
 const handleTouchEnd = (e) => {
   e.preventDefault();
+
+  if (MainStore.state.isImageChanging) return;
 
   toucheEndPositionX.value = e.changedTouches[0].clientX;
 

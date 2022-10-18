@@ -1,6 +1,6 @@
 <template>
   <div data-scroll :data-scroll-offset="props.offset || 70" class="textReveal" :style="`--delay: ${delay || 0}s`">
-    <span class="textReveal__text">{{ props.text }}</span>
+    <span class="textReveal__text" data-scroll :data-scroll-offset="props.offset || 70">{{ props.text }}</span>
     <slot />
   </div>
 </template>
@@ -22,9 +22,15 @@ const props = defineProps({
 
     display: inline-block;
 
-    transition-duration: 1.5s;
+    transition-duration: 1.2s;
     transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
     transition-property: transform;
+
+    transform: translateY(100%);
+
+    &.is-inview {
+      transform: translateY(0);
+    }
 
     *.page-enter-from &,
     *.page-leave-to &,

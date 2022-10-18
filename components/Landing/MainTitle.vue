@@ -3,7 +3,7 @@
     <h1 class="mainTitle__name"><TextRevealAnimation text="Aurélien"></TextRevealAnimation></h1>
     <h1 class="mainTitle__surname">
       <TextRevealAnimation text="Hémidy" :delay="0.2">
-        <span class="mainTitle__surname--job">FRONT-END DEVELOPER</span>
+        <span class="mainTitle__surname--job" data-scroll>FRONT-END DEVELOPER</span>
       </TextRevealAnimation>
     </h1>
   </div>
@@ -50,6 +50,16 @@
 
       @include md {
         font-size: 0.7rem;
+      }
+
+      transform: translateX(-100%);
+      opacity: 0;
+
+      transition: 2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 1.5s;
+
+      &.is-inview {
+        transform: translateX(0);
+        opacity: 1;
       }
 
       *.page-enter-from &,

@@ -7,6 +7,7 @@
       @mouseenter="onHover"
       @mouseleave="onHover"
       @click="handleClick"
+      data-scroll
     >
       <img
         class="imageLanding__picture--image"
@@ -46,13 +47,20 @@ const handleClick = () => MainStore.state.locomotiveScroll.scrollTo(document.get
 
     position: absolute;
 
-    transform: scale(1.05);
+    transform: scale(1.05, 0);
     transform-origin: bottom;
 
     object-fit: cover;
 
-    transition-duration: 1s;
-    transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    transition: 0.8s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.7s;
+
+    &.is-inview {
+      transform: scale(1.05);
+
+      &::after {
+        transform: scaleY(0);
+      }
+    }
 
     *.page-enter-from &,
     *.page-leave-to & {
@@ -79,7 +87,8 @@ const handleClick = () => MainStore.state.locomotiveScroll.scrollTo(document.get
 
       transform-origin: top;
 
-      transform: scaleY(0);
+      transform: scaleY(1);
+      transition: 0.8s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 1.5s;
 
       *.page-enter-from &,
       *.page-leave-to & {
@@ -97,6 +106,9 @@ const handleClick = () => MainStore.state.locomotiveScroll.scrollTo(document.get
 
     @include hover {
       transform: scale(0.9);
+      transition-duration: 1s;
+      transition-delay: 0s;
+      transition-timing-function: cubic-bezier(0.62, 0.05, 0.01, 0.99);
     }
 
     &--image {

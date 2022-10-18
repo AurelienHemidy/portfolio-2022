@@ -1,5 +1,5 @@
 <template>
-  <div class="bottomLineLanding"></div>
+  <div class="bottomLineLanding" data-scroll></div>
 </template>
 
 <script setup></script>
@@ -19,6 +19,13 @@
   opacity: 0.5;
 
   transform-origin: left;
+  transform: scaleX(0);
+
+  transition: 2s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 1.2s;
+
+  &.is-inview {
+    transform: scaleX(1);
+  }
 
   *.page-enter-from &,
   *.page-leave-to & {

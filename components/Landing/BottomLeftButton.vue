@@ -1,6 +1,6 @@
 <template>
   <div class="bottomLeftButton">
-    <button class="bottomLeftButton__button" @click="handleClick">
+    <button class="bottomLeftButton__button" @click="handleClick" data-scroll>
       <img
         src="~/assets/background/arrow-icon.svg"
         alt="arrow icon"
@@ -32,6 +32,16 @@ const handleClick = () => MainStore.state.locomotiveScroll.scrollTo(document.get
     border: none;
 
     background-color: $primary-color;
+
+    transition: 0.9s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    transform: translateY(100%);
+
+    opacity: 0;
+
+    &.is-inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
     *.page-enter-from &,
     *.page-leave-to & {

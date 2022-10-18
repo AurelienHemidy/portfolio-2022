@@ -19,8 +19,8 @@
         <ProjectTagList :tagList="currentProject.techStack" />
 
         <NuxtLink :to="currentProject.link"
-          ><h4 class="projects__visit-text"><TextRevealAnimation text="Visit the site" /></h4
-        ></NuxtLink>
+          ><h4 class="projects__visit-text"><span class="textRevealAnimation">Visit the site</span></h4></NuxtLink
+        >
       </div>
 
       <div class="nextPreviousProject">

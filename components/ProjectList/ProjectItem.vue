@@ -72,7 +72,7 @@ const link = `/projects/${props.slug}`;
 
   // min-height: 140px;
 
-  // transition: 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99) var(--delay + 0.2);
+  transition: 1.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
 
   @include hover {
     &::after {
@@ -82,9 +82,17 @@ const link = `/projects/${props.slug}`;
     }
   }
 
+  transform: translateY(100%);
+  opacity: 0;
+
+  &.is-inview {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
   *.page-enter-from &,
   *.page-leave-to & {
-    transform: scaleX(0);
+    transform: translateY(0) scaleX(0);
   }
 
   *.page-leave-active &,

@@ -2,8 +2,9 @@
   <div class="projectsLanding">
     <p
       class="projectsLanding__text"
-      :class="isAnimating ? 'projectsLanding__text__animation' : ''"
+      :style="isAnimating ? 'letter-spacing: 5px; transform: translateX(-100%);' : ''"
       ref="projectTextLeft"
+      data-scroll
     >
       Portfolio
     </p>
@@ -30,15 +31,25 @@ const props = defineProps({
     font-size: 2rem;
     text-transform: uppercase;
 
-    transition: 0.4s letter-spacing cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.3s;
+    transition: 0.4s all cubic-bezier(0.62, 0.05, 0.01, 0.99) 0.3s;
 
     position: absolute;
 
     writing-mode: vertical-rl;
     text-orientation: mixed;
 
+    opacity: 0;
+    letter-spacing: 5px;
+    transform: translateX(-100%);
+
     &__animation {
       letter-spacing: 5px;
+    }
+
+    &.is-inview {
+      opacity: 1;
+      letter-spacing: 1px;
+      transform: translateX(0);
     }
 
     *.page-enter-from &,
