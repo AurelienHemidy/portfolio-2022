@@ -6,7 +6,13 @@
         ><h4 class="carouselMainImage__line-visit--text"><TextRevealAnimation text="Visit the site" /></h4
       ></NuxtLink>
     </div> -->
-    <picture class="carouselMainImage__picture" ref="picture" :class="isAnimating ? 'animatingOnchange' : ''">
+    <picture
+      class="carouselMainImage__picture"
+      ref="picture"
+      :class="isAnimating ? 'animatingOnchange' : ''"
+      @touchstart="handleTouchStart"
+      @touchend="handleTouchEnd"
+    >
       <img :src="selectedImage" :alt="props.images[MainStore.state.sliderImageID].alt" />
     </picture>
   </div>
@@ -24,6 +30,9 @@ const props = defineProps({
 const selectedImage = ref(props.images[MainStore.state.sliderImageID].src);
 const isAnimating = ref(false);
 
+const toucheStartPositionX = ref(0);
+const toucheEndPositionX = ref(0);
+
 const changeImage = (sliderImageID) => {
   isAnimating.value = true;
   MainStore.state.isImageChanging = true;
@@ -40,6 +49,36 @@ const changeImage = (sliderImageID) => {
 
     clearTimeout(resetAnimation);
   }, 1000);
+};
+
+const handleTouchStart = (e) => {
+  e.preventDefault();
+
+  toucheStartPositionX.value = e.changedTouches[0].clientX;
+};
+const handleTouchEnd = (e) => {
+  e.preventDefault();
+
+  toucheEndPositionX.value = e.changedTouches[0].clientX;
+
+  if (toucheStartPositionX.value > toucheEndPositionX.value) {
+    console.log(MainStore.state.sliderImageID);
+    if (MainStore.state.sliderImageID === props.images.length - 1) {
+      MainStore.state.sliderImageID = 0;
+      return;
+    }
+    console.log('swipe-right');
+
+    MainStore.state.sliderImageID++;
+  } else {
+    console.log('swipe-left');
+    if (MainStore.state.sliderImageID === 0) {
+      MainStore.state.sliderImageID = props.images.length - 1;
+      return;
+    }
+
+    MainStore.state.sliderImageID--;
+  }
 };
 
 watch(
