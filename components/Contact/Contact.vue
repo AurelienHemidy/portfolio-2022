@@ -1,6 +1,8 @@
 <template>
-  <div class="contactContainer">
-    <h1 class="contactContainer__title"><TextRevealAnimation text="Contact"></TextRevealAnimation></h1>
+  <div class="contactContainer" id="contact">
+    <h1 class="contactContainer__title" data-scroll data-scroll-speed="0.5">
+      <TextRevealAnimation text="Contact"></TextRevealAnimation>
+    </h1>
 
     <NuxtLink to="mailto:aurelien@hemidy.fr" class="link">
       <h4 class="contactContainer__email"><TextRevealAnimation text="aurelien@hemidy.fr"></TextRevealAnimation></h4>

@@ -55,6 +55,7 @@ const onImageSliderClick = (e) => {
   @include md {
     padding: 0;
     gap: 0 5px;
+    margin-bottom: 30px;
   }
 
   &__sliderBackground {

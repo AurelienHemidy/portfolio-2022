@@ -20,7 +20,8 @@ onMounted(() => {
   scroll = new $locomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
-    multiplier: 0.8,
+    multiplier: 0.7,
+    reloadOnContextChange: true,
   });
 
   MainStore.state.locomotiveScroll = scroll;
@@ -29,6 +30,7 @@ onMounted(() => {
     entries.forEach((entry, index) => {
       if (scroll) {
         scroll.update();
+        scroll.scrollTo(0, { duration: 0, disableLerp: true });
       }
     });
   });

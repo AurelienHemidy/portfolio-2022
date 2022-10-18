@@ -1,6 +1,8 @@
 <template>
   <div class="projectList" id="projects">
-    <h1 class="projectList__title"><TextRevealAnimation text="Work"></TextRevealAnimation></h1>
+    <h1 class="projectList__title" data-scroll data-scroll-speed="0.5">
+      <TextRevealAnimation text="Work"></TextRevealAnimation>
+    </h1>
 
     <ProjectItem
       :index="i + 1"

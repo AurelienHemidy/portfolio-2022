@@ -222,7 +222,7 @@ const link = `/projects/${props.slug}`;
     justify-content: flex-end;
 
     &--text {
-      font-family: 'Open Sans';
+      font-family: 'Fira Sans';
       font-size: 1rem;
       font-size: min(1rem, 1.5vw);
       line-height: 2.5rem;

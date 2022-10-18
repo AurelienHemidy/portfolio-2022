@@ -5,6 +5,9 @@
 
       <ProjectTitle :title="currentProject.title" :context="currentProject.context" :date="currentProject.date" />
 
+      <ProjectCarouselMainImage :images="currentProject.images" :link="currentProject.link" />
+      <ProjectCarouselSlider :images="currentProject.images" />
+
       <div class="projects">
         <ProjectParagraphTitle content="the project" />
         <ProjectParagraph :content="currentProject.description" />
@@ -14,10 +17,11 @@
 
         <ProjectParagraphTitle content="tech stack" />
         <ProjectTagList :tagList="currentProject.techStack" />
-      </div>
 
-      <ProjectCarouselMainImage :images="currentProject.images" :link="currentProject.link" />
-      <ProjectCarouselSlider :images="currentProject.images" />
+        <NuxtLink :to="currentProject.link"
+          ><h4 class="projects__visit-text"><TextRevealAnimation text="Visit the site" /></h4
+        ></NuxtLink>
+      </div>
 
       <div class="nextPreviousProject">
         <NuxtLink :to="previousProjectLink" class="link">
@@ -139,6 +143,70 @@ useHead({
 <style lang="scss" scoped>
 .projects {
   grid-area: projects;
+
+  &__visit-text {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+
+    display: inline-block;
+
+    text-transform: uppercase;
+    color: transparent;
+    letter-spacing: 1px;
+    font-size: 3rem;
+
+    -webkit-text-stroke: 1px var(--theme-color);
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: 1s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+
+    // animation-timing-function: ease;
+    // animation-duration: 0.5s;
+    // animation-fill-mode: both;
+
+    @include hover {
+      letter-spacing: 2px;
+    }
+
+    @include md {
+      font-size: 2rem;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: var(--theme-color);
+
+      transform-origin: left;
+      *.page-enter-from &,
+      *.page-leave-to &,
+      *.between-projects-enter-from &,
+      *.between-projects-leave-to & {
+        transform: scaleX(0);
+      }
+
+      *.page-leave-active &,
+      *.page-enter-active &,
+      *.between-projects-enter-active & {
+        transition: 0.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      }
+      *.between-projects-leave-active & {
+        transition: 0.5s all cubic-bezier(0.62, 0.05, 0.01, 0.99);
+      }
+    }
+  }
 }
 
 .nextPreviousProject {
@@ -152,7 +220,8 @@ useHead({
   padding: 0 12.5px;
 
   @include md {
-    margin-top: 20px;
+    margin: 20px 0;
+    padding: 0;
   }
 
   &__text {
@@ -169,7 +238,7 @@ useHead({
       content: '';
 
       position: absolute;
-      bottom: -5%;
+      bottom: 0;
       left: 0;
 
       width: 100%;

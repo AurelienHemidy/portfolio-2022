@@ -14,7 +14,7 @@
 <script setup>
 import MainStore from '~~/stores/globalState';
 
-const handleClick = () => MainStore.state.locomotiveScroll.scrollTo(document.getElementById('projects'));
+const handleClick = () => MainStore.state.locomotiveScroll.scrollTo(document.getElementById('contact'));
 </script>
 
 <style lang="scss" scoped>

@@ -1,11 +1,11 @@
 <template>
   <div class="carouselMainImage">
-    <div class="carouselMainImage__line-visit">
+    <!-- <div class="carouselMainImage__line-visit">
       <div class="carouselMainImage__line-visit--line"></div>
       <NuxtLink :to="link"
         ><h4 class="carouselMainImage__line-visit--text"><TextRevealAnimation text="Visit the site" /></h4
       ></NuxtLink>
-    </div>
+    </div> -->
     <picture class="carouselMainImage__picture" ref="picture" :class="isAnimating ? 'animatingOnchange' : ''">
       <img :src="selectedImage" :alt="props.images[MainStore.state.sliderImageID].alt" />
     </picture>
@@ -102,6 +102,7 @@ watch(
       color: var(--theme-color);
       letter-spacing: 1px;
       font-size: 0.9rem;
+      // -webkit-text-stroke: 1pt var(--theme-color);
 
       cursor: pointer;
 
@@ -117,10 +118,10 @@ watch(
 
     z-index: 9999;
 
-    height: calc(100% - 1.5rem);
+    height: calc(100%);
 
     @include md {
-      height: calc(100% - 2.5rem);
+      height: calc(100% - 1rem);
     }
 
     &.animatingOnchange {

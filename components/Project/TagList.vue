@@ -24,8 +24,11 @@ const props = defineProps({
     margin: 0 1.5vh 1.5vh 0;
 
     border: 1px solid var(--theme-color);
+    border-radius: 15px;
 
-    // background-color: var(--theme-color);
+    color: $background-color;
+
+    background-color: var(--theme-color);
 
     font-family: 'Fira Sans', sans-serif;
     font-size: 0.8rem;

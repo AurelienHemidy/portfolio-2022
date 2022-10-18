@@ -12,6 +12,8 @@
         class="imageLanding__picture--image"
         src="~/assets/background/image-of-me.png"
         alt="picture of the developer"
+        data-scroll
+        data-scroll-speed="1"
       />
     </picture>
   </div>
