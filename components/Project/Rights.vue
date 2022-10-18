@@ -1,5 +1,5 @@
 <template>
-  <div class="rights">
+  <div class="rights" data-scroll data-scroll-speed="0.5">
     <p class="rights__name">
       <span class="textRevealAnimation">© Aurélien Hémidy</span>
     </p>
