@@ -1,0 +1,35 @@
+{
+  "id": 5,
+  "title": "Netflix Redesign",
+  "context": "Website Lab",
+  "description": "I focused on the main interaction projects's hover and click. I tried to make it as smooth as possible, using the width of elements and scale. Additionally, I played with the small gallery under the main part, using a grid and translate to make it smoothly follow the cursor.",
+  "why": "Build during a one day session of coding in October 2022, it was a little test to recreate NETFLIX website. I entirely based my coding on the design of Sergey Razgulyaev (https://www.pinterest.fr/pin/112801165658901653/).",
+  "date": 2022,
+  "themeColor": "#e50914",
+  "link": "https://netflix-redesign-lab.netlify.app/",
+  "slug": "netflix-redesign",
+  "placeholder": "/projects/netflix-redesign/netflix-redesign.jpg",
+  "images": [
+    {
+      "src": "/projects/netflix-redesign/netflix-redesign-landing.png",
+      "alt": "Netflix redesign landing page",
+      "color": "#e50914"
+    },
+    {
+      "src": "/projects/netflix-redesign/netflix-redesign-landing-hover.png",
+      "alt": "Netflix redesign landing page hover interaction",
+      "color": "#e50914"
+    },
+    {
+      "src": "/projects/netflix-redesign/netflix-redesign-landing-click.png",
+      "alt": "Netflix redesign landing page click interaction",
+      "color": "#e50914"
+    },
+    {
+      "src": "/projects/netflix-redesign/netflix-redesign-gallery.png",
+      "alt": "Netflix redesign gallery",
+      "color": "#e50914"
+    }
+  ],
+  "techStack": ["Webpack", "SCSS", "Javascript"]
+}
