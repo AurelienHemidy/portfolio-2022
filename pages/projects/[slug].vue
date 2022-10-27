@@ -18,7 +18,7 @@
         <ProjectParagraphTitle content="tech stack" />
         <ProjectTagList :tagList="currentProject.techStack" />
 
-        <NuxtLink :to="currentProject.link"
+        <NuxtLink :to="currentProject.link" target="blank"
           ><h4 class="projects__visit-text">
             <span class="textRevealAnimation">Visit the site</span>
           </h4></NuxtLink
