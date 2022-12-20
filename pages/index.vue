@@ -1,6 +1,7 @@
 <template>
   <div>
     <Landing />
+    <NuxtLink to="/lab">LAB</NuxtLink>
     <ProjectList />
     <Contact />
     <div class="whitespace"></div>

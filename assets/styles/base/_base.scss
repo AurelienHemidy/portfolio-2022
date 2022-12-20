@@ -38,3 +38,13 @@ body {
 .page-leave-active {
   transition: 2.5s all;
 }
+
+canvas.webgl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+  height: 2vh;
+
+  z-index: -1;
+}
