@@ -10,7 +10,6 @@
   "devDependencies": {
     "@nuxt/content": "^2.1.1",
     "@types/stats.js": "^0.17.0",
-    "@types/three": "^0.146.0",
     "nuxt": "3.0.0-rc.11"
   },
   "dependencies": {
@@ -18,7 +17,6 @@
     "lil-gui": "^0.17.0",
     "locomotive-scroll": "^4.1.4",
     "sass": "^1.55.0",
-    "stats.js": "^0.17.0",
-    "three": "^0.147.0"
+    "stats.js": "^0.17.0"
   }
 }

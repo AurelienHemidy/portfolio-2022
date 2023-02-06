@@ -43,8 +43,11 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { TransitionProps } from 'vue';
 import MainStore from '~~/stores/globalState';
+
+import ProjectInterface from '~~/types/ProjectType';
 
 definePageMeta({
   pageTransition: {
@@ -56,45 +59,60 @@ definePageMeta({
   },
   middleware(to, from) {
     if (to.name === 'projects-slug' && from.name === 'projects-slug')
-      from.meta.pageTransition.name = 'between-projects';
+      (from.meta.pageTransition as TransitionProps).name = 'between-projects';
   },
 });
 
 const route = useRoute();
 const router = useRouter();
 
-const { data: currentProject } = await useAsyncData(route.params.slug, () =>
-  queryContent('/project', route.params.slug).findOne()
+// CURRENT PROJECT DATA
+
+const { data: currentProject } = await useAsyncData(route.params.slug as string, () =>
+  queryContent<ProjectInterface>('/project', route.params.slug as string).findOne()
 );
 
-const { data: allProjects } = await useAsyncData('all-projects', () => queryContent('/project').sort({ id: 1 }).find());
-const previousIndex =
+// ALL PROJECTS DATA
+
+const { data: allProjects } = await useAsyncData('all-projects', () =>
+  queryContent<ProjectInterface>('/project').sort({ id: 1 }).find()
+);
+
+// PREVIOUS AND NEXT PROJECTS'S INDEX
+
+const previousIndex: number =
   currentProject.value.id == 0
     ? allProjects.value.length - 1
     : (currentProject.value.id - 1) % allProjects.value.length;
 
-const nextIndex = (currentProject.value.id + 1) % allProjects.value.length;
+const nextIndex: number = (currentProject.value.id + 1) % allProjects.value.length;
 
-const previousProject = allProjects.value[previousIndex];
-const nextProject = allProjects.value[nextIndex];
+// PREVIOUS AND NEXT PROJECTS'S DATA
 
-const previousProjectLink = `/projects/${previousProject.slug}`;
-const nextProjectLink = `/projects/${nextProject.slug}`;
+const previousProject: ProjectInterface = allProjects.value[previousIndex];
+const nextProject: ProjectInterface = allProjects.value[nextIndex];
 
-const titleSEO = ref(`Aurélien Hémidy | ${currentProject.value.title}`);
-const descriptionSEO = ref(currentProject.value.description);
-const urlSEO = ref(`aurelien.hemidy.fr/projects${currentProject.value.link}`);
+// PREVIOUS AND NEXT PROJECTS'S LINKS
 
-const scrollDirection = {
+const previousProjectLink: string = `/projects/${previousProject.slug}`;
+const nextProjectLink: string = `/projects/${nextProject.slug}`;
+
+// HANDLING SCROLL EVENT TO SWITCH BETWEEN PROJECTS
+
+const scrollDirection: Record<number, string> = {
   1: previousProjectLink,
   '-1': nextProjectLink,
 };
 
-const handleWheel = (event) => {
-  console.log(scrollDirection[Math.sign(event.deltaY)]);
-
+const handleWheel = (event: WheelEvent) => {
   router.push(scrollDirection[Math.sign(event.deltaY)]);
 };
+
+// SEO
+
+const titleSEO = ref(`Aurélien Hémidy | ${currentProject.value.title}`);
+const descriptionSEO = ref(currentProject.value.description);
+const urlSEO = ref(`aurelien.hemidy.fr/projects${currentProject.value.link}`);
 
 useHead({
   title: titleSEO.value,

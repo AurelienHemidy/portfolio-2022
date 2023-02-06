@@ -4,8 +4,6 @@
       <NuxtPage />
     </NuxtLayout>
 
-    <canvas class="webgl"></canvas>
-
     <!-- <GridDebugger /> -->
 
     <Preloader />

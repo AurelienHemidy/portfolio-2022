@@ -18,8 +18,12 @@
   </div>
 </template>
 
-<script setup>
-const { data: allProjects } = await useAsyncData('all-projects', () => queryContent('/project').sort({ id: 1 }).find());
+<script lang="ts" setup>
+import ProjectInterface from '~~/types/ProjectType';
+
+const { data: allProjects } = await useAsyncData('all-projects', () =>
+  queryContent<ProjectInterface>('/project').sort({ id: 1 }).find()
+);
 </script>
 
 <style lang="scss" scoped>

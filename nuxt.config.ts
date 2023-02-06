@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     scss: ['@/assets/styles/variables/_variables.scss'],
   },
 
-  plugins: ['~/plugins/locomotiveScroll.client.js', '~/plugins/webgl.client.js'],
+  plugins: ['~/plugins/locomotiveScroll.client.js'],
 
   modules: ['@nuxt/content'],
 

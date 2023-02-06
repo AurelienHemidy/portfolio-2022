@@ -37,7 +37,7 @@
   </NuxtLink>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 const props = defineProps({
   isFirst: Boolean,
   index: Number,
@@ -49,7 +49,7 @@ const props = defineProps({
   delay: Number,
 });
 
-const link = `/projects/${props.slug}`;
+const link: string = `/projects/${props.slug}`;
 </script>
 
 <style lang="scss" scoped>

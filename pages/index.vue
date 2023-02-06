@@ -1,14 +1,15 @@
 <template>
   <div>
     <Landing />
-    <NuxtLink to="/lab">LAB</NuxtLink>
     <ProjectList />
     <Contact />
     <div class="whitespace"></div>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { TransitionProps } from 'vue';
+
 definePageMeta({
   pageTransition: {
     name: 'page',
@@ -17,7 +18,7 @@ definePageMeta({
     duration: 1200,
   },
   middleware(to, from) {
-    from.meta.pageTransition.name = 'page';
+    (from.meta.pageTransition as TransitionProps).name = 'page';
   },
 });
 </script>
